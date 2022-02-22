@@ -1,0 +1,25 @@
+@import "../../../../variables.scss";
+.container{
+    border: 1px solid $theme-8;
+    border-radius: 8px;
+    padding: 20px;
+}
+.stock{
+    padding: 20px;
+    border: 1px solid $theme-10 ;
+    border-radius: 8px;
+    background: #fafafa;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: $mukta;
+    .col-12{
+        margin-top: 5px;
+    }
+    mat-slider {
+        width: 100%;
+        border-radius: 20px;
+        color: $theme-10 !important;
+        filter: invert(20%) !important;
+        filter: saturate(10%);
+    }
+}

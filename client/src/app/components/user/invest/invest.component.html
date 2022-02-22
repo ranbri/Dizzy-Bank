@@ -1,0 +1,112 @@
+
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            &nbsp;
+            <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+            <li class="breadcrumb-item"><a routerLink="/myAccount">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Investing</li>
+        </ol>
+    </nav>
+<div class="investing">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <a routerLink='buyStock' class="btn btn-outline-danger btn-lg"> Buy Stock</a>
+            </div>
+            <div class="col-12 text-secondary">
+                <hr>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row text-center text-secondary">
+            <div class="col-12">
+                <h1>Balance:{{user.balance |number }}&dollar;</h1>
+            </div>
+            <div class="col-12">
+                <h1>My Stocks:</h1>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row" *ngIf='!stocks.length' id="errRow">
+            <div class="col-12 text-center">
+                <div class="lds-ellipsis ">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="container" *ngIf='stocks.length'>
+            <div class="stock" *ngFor='let stock of stocks' #stockCard>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <label>Symbol:</label>&nbsp;
+                        <label>{{stock.symbol}}</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label>Name:</label>&nbsp;
+                        <label>{{stock.name}}</label>
+                    </div>
+                    <div class="col-12 col-md-6" *ngIf='stock.size && stock.total'>
+                        <label>Average Stock Price:</label>&nbsp;
+                        <label>{{stock.total / stock.size | number}}&dollar;</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label>Size:</label>&nbsp;
+                        <label>x{{stock.size}}</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label>Total Stock Price:</label>&nbsp;
+                        <label>{{stock.total |number}}&dollar;</label>
+                    </div>
+                    <br>
+                </div>
+                <div class="row text-center">
+                    <div class="col-12">
+                        <a class="btn btn-info" (click)='getPrice(stock.symbol || "", this.row)'>Get
+                            Current Data:</a>
+                    </div>
+                    <br>
+                    <div class="container" #row style="display: none;">
+                        <div class="row">
+                            <div class="col-12">
+                                <label> Current Price:</label>
+                                <label> {{currentStock.ask}}</label>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="row text-center text-secondary">
+                            <div class="col-12 col-md-4" *ngIf='this.slider.value '>
+                                <label for="customRange1" class="form-label">Sell Quantity:</label>
+                                <label>x{{this.slider.value}}</label>
+                            </div>
+                            <div class="col-12 col-md-4" *ngIf='this.slider.value && currentStock.ask'>
+                                <label for="customRange1" class="form-label">New Price:</label>
+                                <label>{{this.slider.value * currentStock.ask | number}}&dollar;</label>
+                            </div>
+                            <div class="col-12">
+                                <mat-slider #slider thumbLabel [displayWith]="formatLabel" tickInterval="auto" step="1"
+                                    min="1" max="{{stock.size}}" aria-label="units"></mat-slider>
+                                <button class="btn btn-outline-warning "
+                                    (click)='sellStock(currentStock.ask || 0,this.slider.value || 0, stock,this.stockCard)'
+                                    [disabled]='this.loadingSellLogic.style.display == "block"'>
+                                    <label id="sellBtn-{{stock._id}}"> Sell</label>
+                                    <label id="loadingSellBtn-{{stock._id}}" #loadingSellLogic style="display: none;">
+                                        Loading...
+                                        <span class="spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
+                                    </label>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

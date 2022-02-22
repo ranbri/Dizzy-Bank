@@ -1,0 +1,18 @@
+@import "../../../../variables.scss";
+.back-message {
+    background: $theme-10;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    height: 100% !important;
+    color: #fafafa;
+    textarea {
+        resize: none;
+    }
+    #bodyTextarea {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+    #blockedTextarea {
+        border-bottom-left-radius: 0 !important ;
+        border-bottom-right-radius: 0 !important ;
+    }
+}

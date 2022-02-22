@@ -1,0 +1,55 @@
+@import "../../../../variables.scss";
+
+.about {
+    width: 100% !important;
+    hr {
+        width: 80%;
+        margin: auto;
+        color: $theme-2;
+    }
+    font-family: $mukta;
+    height: 100% !important;
+    background: $theme-gradient-dark;
+
+    .who {
+        .card-title {
+            font-size: 6vw;
+            color: $theme-1;
+            opacity: 0.7;
+            text-shadow: -0.1vw 0.1vw 0px $theme-3;
+        }
+    }
+    .office {
+        padding-top: 10px;
+        color: $theme-1;
+        p {
+            font-size: 20px;
+        }
+        label {
+            font-size: 4.3vw;
+        }
+    }
+    .meet {
+        justify-content: center;
+        color: $theme-1;
+        h1 {
+            text-align: center;
+            font-size: 6vw;
+        }
+    }
+    .team {
+        .card {
+            margin-top: 40px;
+        }
+    }
+
+    @media only screen and (max-width: 575px) {
+        .card {
+            width: 94vw !important;
+            height: 138vw !important;
+        }
+    }
+}
+.theme{
+    color:$theme-3;
+}

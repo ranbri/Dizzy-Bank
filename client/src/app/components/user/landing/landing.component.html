@@ -1,0 +1,80 @@
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        &nbsp;
+        <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+        <li class="breadcrumb-item">Account</li>
+
+    </ol>
+</nav>
+<br>
+<div class="landing">
+    <div class="container">
+        <div class="row">
+            <div class="btn-group btn-group-lg text-center" style="height: 40px;" role="group"
+                aria-label="Basic example">
+                <button type="button" class="btn btn-outline-danger " style="padding:0"
+                    routerLink="moneyMove">Balance</button>
+                <button type="button" class="btn btn-outline-dark" style="padding:0" routerLink="contact">
+                    <label class="notificationCircle" id="notification" style="display: none;"></label> Messages
+                </button>
+                <button type="button" class="btn btn-outline-primary " style="padding:0"
+                    routerLink="wire">Wire</button>
+                <button type="button" class="btn btn-outline-success " style="padding:0"
+                    routerLink="investing">Invest</button>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+    <hr width="100%">
+    <div class="container">
+        <div class="row">
+            <div class="col-12" id="noCard" style="display: none;">
+                <p>You have no available cards. </p>
+            </div>
+            <div class="col-12" id="limiter" style="display: none;">
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row" id="landingLoading">
+            <div class="col-12 text-center">
+                <div class="lds-ellipsis ">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="this.cardLimit ? true : false ">
+            <div class="cards col-12 col-md-6 col-xl-4" *ngFor="let card of cards">
+                <app-cards class="myCard" [myCard]="card" [user]="this.user" [routerLink]="['cards', card._id]">
+                </app-cards>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-muted">* A max of 3 card per account including cancelled cards.</small>
+            </div>
+            <div class="col-12">
+                <small class="text-muted">* Please contact an admin if u wish to remove a card completely.</small>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal  fade" id="addCardModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-center">
+        <app-add-card></app-add-card>
+    </div>
+</div>

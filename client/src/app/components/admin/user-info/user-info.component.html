@@ -1,0 +1,195 @@
+<div class="user-info">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            &nbsp;
+            <li class="breadcrumb-item"><a routerLink="/admin/control">Control</a></li>
+            <li class="breadcrumb-item" style="color: #fafafa !important; opacity:0.8;">User Info</li>
+
+        </ol>
+    </nav>
+    <div class="container">
+        <app-loading *ngIf="!this.users.length"></app-loading>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <p class="text-light">Choose User:</p>
+            </div>
+            <div class="col-12">
+                <select id="userSelect" class="form-select">
+                    <option value="" disabled selected>Select user...</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-muted">*all decision made on this page are permenant and <label class="h6">can not be
+                        changed.</label></small>
+            </div>
+            <div class="col-12">
+                <small class="text-muted">*you are free to approve or deny at your own judgment. use your power <label
+                        class="h6">responsibly.</label></small>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button class="btn btn-light" (click)="getInfo()" id="infoButton">Get User Info</button>
+            </div>
+        </div>
+        <br>
+        <div class="container text-light " id="userInfoContainer">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">Basic Info:</h1>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row" *ngIf="this.selectedUser._id">
+                <div class="col-12 col-md-6">
+                    <span class="h4">Name:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.firstName + " " + this.selectedUser.lastName}}</span>
+                </div>
+                <div class="col-12 col-md-6">
+                    <span class="h4">Email:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.email}}</span>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row" *ngIf="this.selectedUser._id">
+                <div class="col-12 col-md-6">
+                    <span class="h4">Phone:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.phone}}</span>
+                </div>
+                <div class="col-12 col-md-6">
+                    <span class="h4">Logged In:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.loggedIn ? "Yes." : "No."}}</span>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row" *ngIf="this.selectedUser._id">
+                <div class="col-12 col-md-4">
+                    <span class="h4">Balance:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.balance | number}}$</span>
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <span class="h4">Account Number:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.accountNumber}}</span>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row" *ngIf="this.selectedUser._id">
+                <div class="col-12 col-md-3">
+                    <span class="h4">City:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.city}}</span>
+                </div>
+                <div class="col-12 col-md-3">
+                    <span class="h4">Street:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.street}}</span>
+                </div>
+                <div class="col-12 col-md-3">
+                    <span class="h4">House:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.house}}</span>
+                </div>
+                <div class="col-12 col-md-3">
+                    <span class="h4">Zipcode:</span>&nbsp;
+                    <span class="h4">{{this.selectedUser.zipcode}}</span>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h1 class="text-center">Cards:</h1>
+            <div class="row" id="cardsLoading" style="display: none;">
+                <div class="col-12 text-center">
+                    <div class="lds-ellipsis ">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <p id="limiter"></p>
+            <div class="container" id="cardsContainer">
+                <div class="row text-center">
+                    <div class="cards col-12 col-md-6 col-xl-4" *ngFor="let card of this.selectedUserCards">
+                        <div class="col-12 ">
+
+                            <h1 *ngIf="card.status == 'pending'">Pending</h1>
+                            <h1 *ngIf="card.status == 'active'">Active</h1>
+                            <h1 *ngIf="card.status == 'cancelled'">Cancelled</h1>
+
+                        </div>
+                        <br>
+                        <div class="col-12 ">
+                            <a class="btn btn-outline-danger " type="button" *ngIf="card.status == 'cancelled'"
+                                (click)="deleteCard(card)">Delete Card</a>
+                        </div>
+                        <div class="col-12 ">
+                            <a class="btn btn-outline-danger " type="button" *ngIf="card.status == 'pending'"
+                                (click)="cancelCard(card)">Cancel Card</a>
+                        </div>
+                        <br>
+                        <div class="col-12 ">
+                            <a class="btn btn-outline-success " type="button" *ngIf="card.status == 'pending'"
+                                (click)="reactivateCard(card)">Reactivate Card</a>
+                        </div>
+                        <app-cards class="myCard" [myCard]="card" [user]="this.selectedUser"></app-cards>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h1 class="text-center">Loans:</h1>
+            <p #errorMessage class="text-center text-muted" style="display: none;">No Loans Found</p>
+            <br>
+            <div class="row" id="loansLoading" style="display: none;">
+                <div class="col-12 text-center">
+                    <div class="lds-ellipsis ">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="loanRequestContainer">
+
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h1 class="text-center">Checks:</h1>
+            <br>
+            <div class="row" id="checksLoading" style="display: none;">
+                <div class="col-12 text-center">
+                    <div class="lds-ellipsis ">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <p #errorMessageChecks class="text-center text-muted"></p>
+            <div class="container" id="checkRequestContainer">
+
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

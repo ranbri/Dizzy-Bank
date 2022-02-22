@@ -1,0 +1,61 @@
+<div class="loans loan-{{generatedLoan.status}} text-center">
+    <div class="container">
+        <p class="text-center" style="opacity:0.5">Loan</p>
+        <div class="row">
+            <div class="col-6 col-md-4 col-xl-3">
+                <label>Loan Spread:</label>
+                <p class="h4">{{generatedLoan.years}} years</p>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+                <label>Loan Amount:</label>
+                <p class="h4">{{generatedLoan.totalAmount | number}}$</p>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+                <label>Remaining:</label>
+                <p class="h4" id="remaining-{{generatedLoan._id}}">{{generatedLoan.remainingAmount | number}}&dollar;</p>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+                <label>Interest Rate:</label>
+                <p class="h4">{{generatedLoan.interestRate}}</p>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+                <label>Status:</label>
+                <p class="h4" *ngIf="generatedLoan.fulfilled"> Approved </p>
+                <p class="h4" *ngIf="!generatedLoan.fulfilled"> Pending </p>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+                <label>Monthly Pay:</label>
+                <p class="h4">
+                    {{generatedLoan.payPerMonth  * (generatedLoan.interestRate.slice(0,3)/100 + 1) | number}}&dollar;</p>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+                <label>Date Applied:</label>
+                <p class="h4">{{generatedLoan.dateAdded}}</p>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+                <label *ngIf="generatedLoan.fulfilled">Date Approved:</label>
+                <label *ngIf="!generatedLoan.fulfilled">Awaiting Approval.</label>
+                <p class="h4" *ngIf="generatedLoan.status == 'approved'">{{ generatedLoan.dateApproved }}</p>
+            </div>
+        </div>
+        <div class="row text-center" 
+        *ngIf="generatedLoan.remainingAmount > 0 && generatedLoan.status !== 'pending' && newRemaining !==0">
+            <hr>
+            <div class="col-12 ">
+                <p class="text-secondary">Manual Pay:</p>
+            </div>
+            <div class="col-12 ">
+                <input style="width: 100%;" id="range-{{generatedLoan._id}}" type="range" min="0"
+                    max="{{remaining}}" step="10" value="0" data-orientation="vertical"
+                    (change)="updateSetting()" class="istyle">
+            </div>
+            <div class="col-12 ">
+                <label id="labelValue-{{generatedLoan._id}" class="h4">{{gridsize | number}}</label>$
+            </div>
+            <div class="col-12 ">
+                <button class="btn btn-outline-danger" (click)="payLoan()" [disabled]="remaining === 0 || gridsize === 0"
+                    style="width: 100%;border-radius: 20px !important;">Pay</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+@import "../../../../../variables.scss";
+.invoice{
+    width: 100%;
+    border-radius: 12px;
+    margin: auto;
+    padding: 20px;
+}
+.negative{
+    border: 2px solid $theme-error-medium;
+}
+.positive{
+    border: 2px solid $theme-success-medium;
+}

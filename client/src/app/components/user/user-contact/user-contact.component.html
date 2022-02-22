@@ -1,0 +1,176 @@
+<div class="user-contact">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            &nbsp;
+            <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+            <li class="breadcrumb-item"><a routerLink="/myAccount">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+        </ol>
+    </nav>
+    <app-loading style="display:none;" id="loading"></app-loading>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <button type="button " class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Send Message To Admin
+                </button>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <div class="container" id="messagesContainer">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">
+                        My Messages:
+                    </h1>
+                </div>
+            </div>
+            <div class="row" style="display: none;" #errorMessage>
+                <div class="col-12 text-center">
+                    <p>No messages found.</p>
+                </div>
+            </div>
+            <div class="row" id="loadingSpinner" >
+                <div class="col-12 text-center">
+                    <div class="lds-ellipsis ">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="generatedMessages" *ngIf="this.messages.length">
+                <div class="generated" *ngFor="let message of this.messages">
+                    <div class="message">
+                        <div class="row">
+                            <div class="col-12 col-md-10">
+                                <p class=" h4">{{message.sender !== "Admin" ? "Sent" : "Recieved"}}</p>
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <label class="text-right">{{message.hour}}&nbsp;</label>
+                                <label class="text-right">{{message.date}}</label>
+                                <div *ngIf="message.sender == 'Admin'">
+                                    <button class="btn btn-secondary btn-lg" id="readBtn-{{message._id}}"
+                                        (click)="sendRead(message._id)" *ngIf="message.status == 'pending' ">
+                                        <div class="ring-of-dots" id="btnLoader-{{message._id}}" style="display: none;">
+                                        </div>
+                                        <div id="readText-{{message._id}}">Read</div>
+                                    </button>&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12 col-md-2">
+                                <label>{{message.sender == "User" ? "To:" : "From:"}}</label>
+                            </div>
+                            <div class="col-12 col-md-10 ">
+                                <label>{{message.sender == "User" ? message.to : message.from}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-md-2 text-left">
+                                <label class="">Title:</label>
+                            </div>
+                            <div class="col-12 col-md-10 ">
+                                <label>{{message.title}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-md-2">
+                                <label>Body:</label>
+                            </div>
+                            <div class="col-12 col-md-10 ">
+                                <textarea readonly>{{message.body}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <br>
+        <br>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send Message:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container" id="sendMessageContainer">
+                    <form [formGroup]="newMessage">
+                        <div class="row">
+
+                            <div class="row">
+                                <div class="col-md-2 col-12">
+                                    <label class="form-label">Admin:</label>
+                                </div>
+                                <div class="col-md-10 col-12">
+                                    <select id="adminSelect" class="form-select" formControlName='select'>
+                                        <option value="" disabled selected>Choose Admin...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2 col-12 form-label">
+                                    <label>Title:</label>
+                                </div>
+                                <div class="col-md-10 col-12">
+                                    <input type="text" class="form-control" formControlName="title" id="title"
+                                        (change)="validateMessage()">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2 col-12 form-label">
+                                    <label>Body:</label>
+                                </div>
+                                <div class="col-md-10 col-12">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                        style="height: 200px;" formControlName="body" id="body"
+                                        (change)="validateMessage()" style="resize: none;height: 200px;"
+                                        maxlength="151"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-2"></div>
+                                <div class="col-10">
+                                    &nbsp;<small class="text-muted">max length of 151</small>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-success btn-lg" type="submit" [disabled]="this.messageBol"
+                    (click)="sendMessage()" id="sendBtn" data-bs-dismiss="modal">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+@import "../../../../variables.scss";
+
+.card {
+    text-align: center;
+    font-family: $font-family;
+    color: $theme-1;
+    border: 1px solid $theme-3;
+    margin: auto;
+    width: 99.8%;
+    height: 93vh;
+    input {
+        background: $theme-background-light;
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid $theme-2;
+        margin: 5px;
+    }
+    h5,
+    p {
+        text-align: left;
+    }
+    .card-body {
+        background: $theme-gradient-medium;
+    }
+    .card-header,
+    .card-footer {
+        background: $theme-8;
+    }
+    .card-footer {
+        color: $theme-2 !important;
+        text-align: center;
+    }
+    .card-title {
+        font-size: 40px;
+    }
+    .card-text {
+        font-size: 30px;
+        padding: 20px;
+    }
+
+    .btn {
+        padding: 10px 40px 10px 40px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .card {
+        height: 93vh !important;
+    }
+
+    .card-title {
+        font-size: 30px !important;
+    }
+    .card-text {
+        font-size: 20px !important;
+        padding: 19.2px !important;
+    }
+    p {
+        font-size: 1px;
+    }
+    .card {
+        .btn {
+            margin-top: 10px;
+        }
+    }
+}
+.yahoo-img {
+    background: transparent;
+    width: 80px;
+}
+.yahoo-img:hover {
+    background: #fafafa;
+    border-radius: 4px;
+    transform: scale(1.05);
+}
+.yahoo-img:active {
+    transform: scale(1);
+}

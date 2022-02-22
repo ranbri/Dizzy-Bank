@@ -1,0 +1,97 @@
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        &nbsp;
+        <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/myAccount">Account</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Wire</li>
+    </ol>
+</nav>
+<div class="wire">
+    <div class="row text-center text-secondary">
+        <div class="col-12">
+            <h1>Wire Money:</h1>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container" id="accountNumberValidator" *ngIf="accountNumberPageBol">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-secondary">Account Number:</h1>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <input type="number" #accountNumberPicker class="form-control" placeholder="13 432 442314" required
+                    (keyup)='updateLength(this.accountNumberPicker.value.length)' maxlength="11" min="0"
+                    pattern=" /^\d+$/" oninput='if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
+                    this.pickerLength = this.value.length ' onkeyup="this.value = this.value.replace('-','')">
+                &nbsp;<small class="text-muted">{{pickerLength}}/11</small>
+                <p id="errMessage" class="text-danger"></p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+
+                <button (click)='getAccountNumberPicker(this.accountNumberPicker.value)'
+                    class="btn btn-outline-secondary" [disabled]='pickerLength !== 11'>
+                    <label id="nextBtn">
+                        Next
+                        <i class="fas fa-chevron-right"></i>
+                    </label>
+                    <label id="loadingBtn" style="display: none;">
+                        Loading...
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </label>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="stockDetailsContainer" *ngIf="wireAmountPageBol">
+        <div class="row text-center text-secondary">
+            <div class="col-12">
+                <h1 class="text-secondary">Amount:</h1>
+                <hr>
+                <br>
+            </div>
+            <div class="col-4">
+                <label class="h3">{{this.slider.value | number}}&dollar;</label>
+            </div>
+            <div class="col-4">
+                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="col-4">
+                <label class="h3">{{selectedUser.firstName}} {{selectedUser.lastName}}</label>
+            </div>
+        </div>
+        <br>
+        <div class="col-12 whiteRow text-secondary">
+            <mat-slider #slider thumbLabel [displayWith]="formatLabel" tickInterval="1" step="1" min="0"
+                max="{{maxLimit}}" aria-label="units"></mat-slider>
+        </div>
+        <hr>
+        <div class="row text-center">
+            <div class="col-12">
+                <button (click)='deGetAccountNumberPicker()' class="btn btn-outline-secondary">
+                    <i class="fas fa-chevron-left"></i>
+                    back</button>&nbsp;
+                <button (click)='wire(this.slider.value)' class="btn btn-outline-danger"
+                    [disabled]='this.loadingWireBtn.style.display == "block" || !this.slider.value'>
+                    <label id="wireBtn">
+                        Wire
+                    </label>
+                    <label id="loadingWireBtn" #loadingWireBtn style="display: none;">
+                        Loading...
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </label>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

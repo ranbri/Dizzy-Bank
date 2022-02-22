@@ -1,0 +1,14 @@
+@import "../../../../variables.scss";
+.user-info {
+    background: $theme-10;
+    height: 100% !important;
+ 
+    .cards{
+        height: 480px;
+        width: 360px;
+        border: 1px solid #fafafa;
+        padding: 10px;
+        border-radius: 12px;
+        margin: 5px;
+    }
+}

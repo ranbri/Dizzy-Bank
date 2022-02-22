@@ -1,0 +1,30 @@
+<app-loading style="display: none;" id="loading"></app-loading>
+<div class="card">
+    <div class="card-header">
+        <input type="text" name="symbolPicker" value="{{ symbolPicker | uppercase }}" [(ngModel)]="symbolPicker"
+            id="symbolPicker" placeholder="Pick a Symbol">
+        &nbsp;
+        <input type="date" name="dateChoosen" [(ngModel)]="datePicker" class="dateChoosen" id="dateChoosen">
+        &nbsp;
+        <button class="btn btn-outline-info" [disabled]="!datePicker || !symbolPicker ? 'disabled' : null"
+            (click)="dateClicker()">Choose Date</button>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><label>Symbol:</label> &nbsp; {{dateSelector.symbol | uppercase}}</h5>
+        <p class="card-text"><label>{{labelSelector.firstLabel}} &nbsp; </label>{{dateSelector.first}}</p>
+        <p class="card-text"><label>{{labelSelector.secondLabel}}&nbsp;</label>{{dateSelector.second}}</p>
+        <p class="card-text"><label>{{labelSelector.thirdLabel}}&nbsp; </label>{{dateSelector.third}}</p>
+        <p class="card-text"><label>{{labelSelector.forthLabel}}&nbsp;</label> {{dateSelector.fourth}}</p>
+        <p class="card-text"><label>{{labelSelector.fifthLabel}}&nbsp;</label>{{dateSelector.fifth}}</p>
+        <p class="card-text"><label>{{labelSelector.sixthLabel}}&nbsp;</label> {{dateSelector.sixth}}</p>
+        <label>&nbsp;- information provided by
+            <a href="https://finance.yahoo.com/" target="_blank">
+                <img class="yahoo-img" src="http://localhost:3000/assets/photos/Yahoo_Finance.png" alt="Yahoo-finance">
+            </a>
+        </label>
+    </div>
+    <div class="card-footer text-muted">
+        <label>Date:&nbsp;</label>{{dateSelector.date}}
+    </div>
+
+</div>

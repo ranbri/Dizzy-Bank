@@ -1,0 +1,13 @@
+@import "../../../../variables.scss";
+.login {
+    background: $theme-gradient-light;
+    width: 100%;
+    height: 100%;
+    i{
+        color: $theme-8;
+    }
+    p{
+        font-size: 16px !important;
+        color: $theme-error-medium;
+    }
+}

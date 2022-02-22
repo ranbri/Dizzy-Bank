@@ -1,0 +1,83 @@
+<div class="checks text-center">
+    <div class="container">
+        <p class="text-center" style="opacity:0.5">Check</p>
+        <div class="row">
+            <div class="col-6 col-md-4 col-lg-3">
+                <label>From:</label>
+                <p class="h4">{{generatedCheck.name}}</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <label>Bank Number:</label>
+                <p class="h4">{{generatedCheck.bankNumber}}</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <label>Status:</label>
+                <p class="h4">{{generatedCheck.status}}</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <label>Amount:</label>
+                <p class="h4">{{generatedCheck.amount | number}}$</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <label *ngIf="generatedCheck.status === 'approved'">Date Approved:</label>
+                <p class="h4" *ngIf="generatedCheck.status !== 'pending'">{{generatedCheck.dateAdded}}</p>
+                <label *ngIf="generatedCheck.status === 'pending'">Awaiting Approval:</label>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <label *ngIf="generatedCheck.status === 'approved'">Date Applied:</label>
+                <p class="h4" *ngIf="generatedCheck.status === 'approved'">{{ generatedCheck.dateApproved }}</p>
+            </div>
+        </div>
+
+    </div>
+    <table class="tg ">
+        <thead>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

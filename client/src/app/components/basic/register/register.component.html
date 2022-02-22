@@ -1,0 +1,412 @@
+<app-loading style="display: none;" id="loading"></app-loading>
+<div class="register">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            &nbsp;
+            <li class="breadcrumb-item"><a routerLink="/home" class="link">Home</a></li>
+            <li class="breadcrumb-item"><a routerLink="/login" class="link">Login</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Register</li>
+        </ol>
+    </nav>
+    <br>
+    <form [formGroup]="registration">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-12 col-md-4">
+                    <label class="form-label">Email:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input #email type="email" class="form-control" placeholder="email" formControlName="email" required
+                        pattern="^(\w|\W)+@\w+\.(\w|\.)+$">
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['email'].touched && 
+                    this.registration.controls['email'].value === undefined ">*</span>
+                    <span *ngIf="
+                    this.registration.controls['email'].invalid && 
+                    this.registration.controls['email'].value !== undefined && 
+                    this.registration.controls['email'].touched ">Email is invalid </span>
+                    <span *ngIf="
+                    this.registration.controls['email'].untouched && 
+                    this.registration.controls['email'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label class="form-label">Password:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="password" class="form-control" placeholder="password" formControlName="password"
+                        required pattern="^\w{4,}$">
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['password'].touched && 
+                    this.registration.controls['password'].value === undefined ">*</span>
+                    <span *ngIf="
+
+                this.registration.controls['password'].value !== undefined && 
+                this.registration.controls['password'].touched &&
+                this.registration.controls['password'].value.toString().length < 8 ? true : false
+                    ">password must be 8 charachters or higher
+                    </span>
+                    <span *ngIf="
+                    this.registration.controls['password'].untouched && 
+                    this.registration.controls['password'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label class="form-label">Confirm Password:</label>
+
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="password" class="form-control" formControlName="confirmPassword" required
+                        placeholder="confirm password">
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['confirmPassword'].touched && 
+                    this.registration.controls['confirmPassword'].value === undefined ">*</span>
+                    <span *ngIf="
+                
+                    this.registration.controls['confirmPassword'].value !== this.registration.controls['password'].value &&
+                    this.registration.controls['confirmPassword'].touched ">password does not match </span>
+                    <span *ngIf="
+                    this.registration.controls['confirmPassword'].untouched && 
+                    this.registration.controls['confirmPassword'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label class="form-label">First Name:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="text" class="form-control" formControlName="firstName" required
+                        placeholder="firstName">
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['firstName'].touched && 
+                    this.registration.controls['firstName'].value === undefined ">*</span>
+                    <span *ngIf="
+                    this.registration.controls['firstName'].invalid && 
+                    this.registration.controls['firstName'].value !== undefined && 
+                    this.registration.controls['firstName'].touched ">firstName is invalid </span>
+                    <span *ngIf="
+                    this.registration.controls['firstName'].untouched && 
+                    this.registration.controls['firstName'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label class="form-label">Last Name:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="text" class="form-control" formControlName="lastName" required placeholder="lastName">
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['lastName'].touched && 
+                    this.registration.controls['lastName'].value === undefined ">*</span>
+                    <span *ngIf="
+                    this.registration.controls['lastName'].invalid && 
+                    this.registration.controls['lastName'].value !== undefined && 
+                    this.registration.controls['lastName'].touched ">lastName is invalid </span>
+                    <span *ngIf="
+                    this.registration.controls['lastName'].untouched && 
+                    this.registration.controls['lastName'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label class="form-label">Phone:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="number" #phone class="form-control" placeholder="0501234567" required maxlength="10"
+                        min="0" (keyup)='updateLength(this.phone.value)' pattern=" ^\d+$" oninput='if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
+                       this.pickerLength = this.value.length ' onkeyup="this.value = this.value.replace('-','')">
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="!phoneValue  ">*</span>
+                    <div *ngIf="phoneValue">
+                        <span *ngIf="phoneValue.length < 10 ">phone number too short.</span>
+                        <span >*</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label class="form-label">Date Of Birth:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <mat-form-field appearance="fill" style="width: 100%;">
+                        <mat-label>Pick A Date</mat-label>
+                        <input matInput [matDatepicker]="picker2" formControlName="dateOfBirth" style="color: #fafafa;">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <p>Address:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label>City:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="text" class="form-control" formControlName="city" placeholder="city" required>
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['city'].touched && 
+                    this.registration.controls['city'].value === undefined ">*</span>
+                    <span *ngIf="
+                    this.registration.controls['city'].invalid && 
+                    this.registration.controls['city'].value !== undefined && 
+                    this.registration.controls['city'].touched ">city is invalid </span>
+                    <span *ngIf="
+                    this.registration.controls['city'].untouched &&  
+                    this.registration.controls['city'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label>Street:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="text" class="form-control" placeholder="street" formControlName="street" required>
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['street'].touched && 
+                    this.registration.controls['street'].value === undefined ">*</span>
+                    <span *ngIf="
+                    this.registration.controls['street'].invalid && 
+                    this.registration.controls['street'].value !== undefined && 
+                    this.registration.controls['street'].touched ">street is invalid </span>
+                    <span *ngIf="
+                    this.registration.controls['street'].untouched &&  
+                    this.registration.controls['street'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label>Zipcode:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="number" class="form-control" placeholder="zipcode" formControlName="zipcode" required
+                        maxlength="7"
+                        oninput='if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)'>
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['zipcode'].touched && 
+                    this.registration.controls['zipcode'].value === undefined ">*</span>
+                    <span *ngIf="
+
+                this.registration.controls['zipcode'].value !== null && 
+                this.registration.controls['zipcode'].touched &&
+                this.registration.controls['zipcode'].value.toString().length < 7 ? true : false
+                    ">zipcode must be 7 digits.
+                    </span>
+                    <span *ngIf="
+                    this.registration.controls['zipcode'].untouched && 
+                    this.registration.controls['zipcode'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label>House number:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="number" class="form-control" placeholder="house" formControlName="house" required>
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['house'].touched && 
+                    this.registration.controls['house'].value === undefined ">*</span>
+                    <span *ngIf="
+                    this.registration.controls['house'].invalid && 
+                    this.registration.controls['house'].value !== undefined && 
+                    this.registration.controls['house'].touched ">please add house number.</span>
+                    <span *ngIf="
+                    this.registration.controls['house'].untouched &&  
+                    this.registration.controls['house'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label>Entrance:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="text" class="form-control" placeholder="entrance" formControlName="entrance">
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['floor'].untouched &&  
+                    this.registration.controls['floor'].pristine "> </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label>Floor Number:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="number" class="form-control" placeholder="floor" formControlName="floor" required
+                        maxlength="2"
+                        oninput='if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)'>
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['floor'].touched && 
+                    this.registration.controls['floor'].value === undefined ">*</span>
+                    <span *ngIf="
+                    this.registration.controls['floor'].invalid && 
+                    this.registration.controls['floor'].value !== undefined && 
+                    this.registration.controls['floor'].touched ">please add floor number. </span>
+                    <span *ngIf="
+                    this.registration.controls['floor'].untouched &&  
+                    this.registration.controls['floor'].pristine ">*</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label>Apartment Number:</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="number" class="form-control" placeholder="apartment" formControlName="apartment"
+                        required>
+                </div>
+                <div class="col-12 col-md-4">
+                    <span *ngIf="
+                    this.registration.controls['apartment'].touched && 
+                    this.registration.controls['apartment'].value === undefined ">*</span>
+                    <span *ngIf="
+                    this.registration.controls['apartment'].invalid && 
+                    this.registration.controls['apartment'].value !== undefined && 
+                    this.registration.controls['apartment'].touched ">please add appartment number. </span>
+                    <span *ngIf="
+                    this.registration.controls['apartment'].untouched &&  
+                    this.registration.controls['apartment'].pristine ">*</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4"></div>
+                <div class="col-12 col-md-4"></div>
+                <div class="col-12 col-md-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <input class="form-check-input" type="checkbox" formControlName="terms">
+                </div>
+                <div class="col-11">
+                    <label class="form-check-label">
+                        please agree to
+                        <a type="button" class="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Terms And Condition.
+                        </a>
+
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p #error> </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" [disabled]="
+                    this.registration.invalid || 
+                    this.registration.controls['confirmPassword'].value !== this.registration.controls['password'].value ||
+                    !this.registration.touched || !this.registration.controls['terms'].value || 
+                    this.registration.controls['password'].value.toString().length < 8 ? true : false ||
+                    this.registration.controls['zipcode'].value.toString().length !== 7 ? true : false ||
+                    phoneValue.length < 10  ||
+                    this.registration.controls['dateOfBirth'].value == null ||
+                    this.loadingRegisterBtn.style.display == 'block'
+                    " #formBtn class="btn btn-outline-secondary " (click)="register()">
+                        <label id="registerBtn">
+                            Register
+                        </label>
+                        <label id="loadingRegisterBtn" #loadingRegisterBtn style="display: none;">
+                            Loading...
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </label>
+                    </button>
+                </div>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+<!-- Terms and Conditions -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h1>Terms and Conditions ("Terms")</h1>
+                <h3>Last updated:2022 </h3>
+                Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using
+                the http://www.dizzy.com website and the Dizzy Bank mobile
+                application (the "Service") operated by Dizzy inc. ("us", "we", or "our").
+                Your access to and use of the Service is conditioned on your acceptance of and compliance with
+                these Terms. These Terms apply to all visitors, users and others who access or use the Service.
+                By accessing or using the Service you agree to be bound by these Terms. If you disagree
+                with any part of the terms then you may not access the Service.
+                Purchases
+                If you wish to purchase any product or service made available through the Service ("Purchase"),
+                you may be asked to supply certain information relevant to your Purchase including, without
+                limitation, your …
+                The Purchases section is for businesses that sell online (physical or digital). For the full
+                disclosure section, create your own Terms and Conditions.
+                Subscriptions
+                Some parts of the Service are billed on a subscription basis ("Subscription(s)"). You will be billed in
+                advance on a recurring ...
+                The Subscriptions section is for SaaS businesses. For the full disclosure section, create your
+                own Terms and Conditions.
+                Content
+                Our Service allows you to post, link, store, share and otherwise make available certain information,
+                text, graphics, videos, or other material ("Content"). You are responsible for the …
+                The Content section is for businesses that allow users to create, edit, share, make content on
+                their websites or apps. For the full disclosure section, create your own Terms and Conditions.
+                Links To Other Web Sites
+                Our Service may contain links to third-party web sites or services that are not owned or controlled
+                by Dizzy inc. .
+                Dizzy inc. has no control over, and assumes no responsibility for, the content,
+                privacy policies, or practices of any third party web sites or services. You further acknowledge and
+                agree that Dizzy inc. shall not be responsible or liable, directly or indirectly, for any
+                damage or loss caused or alleged to be caused by or in connection with use of or reliance on any
+                such content, goods or services available on or through any such web sites or services.
+                Changes
+                We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a
+                revision is material we will try to provide at least 30 days' notice prior to any new terms
+                taking effect. What constitutes a material change will be determined at our sole discretion.
+                Contact Us
+                If you have any questions about these Terms, please contact us at lol@notreally.com
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

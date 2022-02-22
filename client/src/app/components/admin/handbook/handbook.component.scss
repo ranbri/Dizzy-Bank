@@ -1,0 +1,23 @@
+@import "../../../../variables.scss";
+.handbook {
+    background: $theme-10;
+    height: 100% !important;
+    color: #fafafa;
+}
+.list-group-item{
+    background: $theme-10;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    margin-left: 10px;
+    width: 100%;
+    cursor: pointer;
+
+}
+.list-group-item:hover{
+    transform: scale(1.06);
+    transform: translate(1);
+}
+.list-group-item:active{
+    transform: scale(1);
+    transform: translate(0);
+}

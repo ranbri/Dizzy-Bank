@@ -1,0 +1,22 @@
+<div class="container invoice {{payment.type}}">
+    <div class="row">
+        <div class="col-6 col-md-3">
+            <label>Reason:</label>&nbsp;
+            <label>{{payment.reason}}</label>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <label>Payment Amount:</label>&nbsp;
+            <label>{{payment.amount | number}}&dollar;</label>
+        </div>
+        <div class="col-6 col-md-3">
+            <label>Date:</label>&nbsp;
+            <label>{{payment.date | date:'medium'}}</label>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <label>By:</label>&nbsp;
+            <label>{{payment.by }}</label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+@import "../../../../../variables.scss";
+.container{
+    border: 1px solid $theme-10;
+    padding: 40px;
+    border-radius: 20px;
+    background: #fafafa;
+}
+i{
+    padding: 4px 8px 4px 8px;
+}
+.input{
+    background: #fafafa;
+}
+.available{
+    border: 2px solid $theme-success-medium !important;
+}
+.notFound{
+    border: 2px solid $theme-error-medium !important;
+}
+#stockDetailsContainer{
+    font-size: 28px;
+    color: $theme-10;
+    font-size: $font-family2;
+    padding: 20px;
+}
+#buyContainer{
+    padding: 20px;
+    label{
+        margin-bottom: 4px;
+    }
+}
+.whiteRow{
+    padding: 20px;
+}
+mat-slider {
+    width: 100%;
+    border-radius: 20px;
+    color: $theme-10 !important;
+    filter: invert(10%) !important;
+}
+.yahoo-img{
+    background: transparent;
+    width: 80px;
+}
+.yahoo-img:hover{
+    background: #fafafa;
+    border-radius: 4px;
+    transform: scale(1.05);
+}
+.yahoo-img:active{
+    transform: scale(1);
+}

@@ -1,0 +1,35 @@
+<div class="{{myCard.provider}} {{myCard.status}}">
+    <div class="top">
+        <h1>Dizzy</h1>
+        <p>{{myCard.cardNumber}}</p>
+    </div>
+    <div class="bottom">
+        <div class="col-8">
+            <label>Exp Date:</label>
+            <p *ngIf='myCard.status == "cancelled"'>cancelled</p>
+            <p *ngIf='myCard.status !== "cancelled"'>{{myCard.expMonth}}/{{myCard.expYear}}</p>
+            <h4>{{userName}}</h4>
+        </div>
+        <div class="col-4" *ngIf="myCard.provider == 'cred-it' ">
+            <i class="fas fa-feather-alt"></i>
+        </div>
+        <div class="col-4" *ngIf="myCard.provider == 'globen' ">
+            <i class="fas fa-globe-americas"></i>
+        </div>
+        <div class="col-4" *ngIf="myCard.provider == 'kiwi' ">
+            <i class="fas fa-kiwi-bird"></i>
+        </div>
+        <div class="col-4" *ngIf="myCard.provider == 'diaval' ">
+            <i class="fas fa-dragon"></i>
+        </div>
+        <div class="col-4" *ngIf="myCard.provider == 'queen-express' " data-bs-toggle="tooltip" data-bs-placement="top"
+            title="Queen Express">
+            <i class="fas fa-chess-queen"></i>
+        </div>
+        <div class="col-4" *ngIf="myCard.provider == 'stacks' " data-bs-toggle="tooltip" data-bs-placement="top"
+            title="STACKS">
+            <i class="fas fa-cubes"></i>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,191 @@
+<div class="invest">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            &nbsp;
+            <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+            <li class="breadcrumb-item"><a routerLink="/myAccount">Account</a></li>
+            <li class="breadcrumb-item"><a routerLink="/myAccount/investing">Investing</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Buy Stock</li>
+        </ol>
+    </nav>
+</div>
+<div class="stock-info">
+    <br>
+    <br>
+    <br>
+    <div class="container" id="symbolPickerContainer" *ngIf="symbolPageBol">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-secondary">Search Stock</h1>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <input type="text" name="symbolPicker" value="{{ symbolPicker | uppercase }}" [(ngModel)]="symbolPicker"
+                    id="symbolPicker" class="form-control {{symbolLogic}}" placeholder="Search..." maxlength="10">
+                <p id="errMessage" class="text-danger"></p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+
+                <button (click)='getStock()' class="btn btn-outline-secondary" [disabled]='!this.symbolPicker'>
+                    <label id="nextBtn">
+                        Next
+                        <i class="fas fa-chevron-right"></i>
+                    </label>
+                    <label id="loadingBtn" style="display: none;">
+                        Loading...
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </label>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="stockDetailsContainer" *ngIf="stockDetailBol">
+        <div class="row ">
+            <div class="col-12">
+                <h1 class="text-secondary">Stock Details:</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row whiteRow text-secondary">
+            <div class="col-12">
+                <label>Name:</label>&nbsp;
+                <label>{{stockModel.name}}</label>
+            </div>
+            <br>
+            <br>
+            <div class="col-6 col-md-2">
+                <label>Symbol:</label>&nbsp;
+            </div>
+            <div class="col-6 col-md-2">
+                <label>{{stockModel.symbol}}</label>
+            </div>
+            <div class="col-6 col-md-2">
+                <label>Bid:</label>&nbsp;
+            </div>
+            <div class="col-6 col-md-2">
+                <label>{{stockModel.bid}}</label>
+            </div>
+            <div class="col-6 col-md-2">
+                <label>Ask:</label>&nbsp;
+            </div>
+            <div class="col-6 col-md-2">
+                <label>{{stockModel.ask}}</label>
+            </div>
+            <div class="col-6 col-md-2">
+                <label>Day High:</label>&nbsp;
+            </div>
+            <div class="col-6 col-md-2">
+                <label>{{stockModel.high}}</label>
+            </div>
+            <div class="col-6 col-md-2">
+                <label>Day Low:</label>&nbsp;
+            </div>
+            <div class="col-6 col-md-2">
+                <label>{{stockModel.low}}</label>
+            </div>
+        </div>
+        <div class="row text-center text-secondary">
+            <div class="col-12 col-md-6">
+                <label for="customRange1" class="form-label">Stock Quantity:</label>
+                <label>{{this.slider.value}}</label>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="customRange1" class="form-label">Price:</label>
+                <label>{{this.slider.value * stockModel.ask | number}}&dollar;</label>
+            </div>
+            <div class="col-12">
+                <mat-slider #slider thumbLabel [displayWith]="formatLabel" tickInterval="auto" step="1" min="1"
+                    max="100" aria-label="units"></mat-slider>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center">
+            <div class="col-12">
+                <button (click)='deGetStock()' class="btn btn-outline-secondary">
+                    <i class="fas fa-chevron-left"></i>
+                    back</button>&nbsp;
+                <button (click)='getBuy(this.slider.value)' class="btn btn-outline-danger">Buy
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container text-secondary" id="buyContainer" *ngIf="buyPageBol">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-secondary">Buy:</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <label class="h4">Stock:</label>
+                <label class="h4">{{stockModel.name}}&dollar;</label>
+            </div>
+            <div class="col-6 col-md-3">
+                <label class="h4">Total:</label>
+                <label class="h4">{{stockModel.total}}&dollar;</label>
+
+            </div>
+            <div class="col-6 col-md-3">
+                <label class="h4">Quantity:</label>
+                <label class="h4">{{stockModel.size}}</label>
+            </div>
+       
+            <div class="col-6 col-md-3">
+                <label class="h4">Ask:</label>
+                <label class="h4">{{stockModel.ask}}&dollar;</label>
+            </div>
+            <div class="col-12 col-md-3">
+                <label class="h4">Pay Method:</label>
+            </div>
+            <div class="col-12 col-md-6">
+                <select #cardSelect class="form-select" aria-label="Choose credit card..." >
+                    <option selected disabled>Choose Pay Method...</option>
+                    <option  value=''>Account Balance</option>
+                    
+                    <option value="{{card._id}}" *ngFor='let card of cards'>{{card.cardNumber}} - {{card.provider}}</option>
+                  </select>
+            </div>
+        </div>
+
+
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-muted">*Pay button will buy the stock.</small>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                <button (click)='deGetBuy()' class="btn btn-outline-secondary">
+                    <i class="fas fa-chevron-left"></i>
+                    back</button>&nbsp;
+
+
+                <button (click)='pay(this.cardSelect)' class="btn btn-success" 
+                [disabled]='this.loadingPayBtn.style.display == "block"'>
+                    <label id="payBtn">
+                        Pay
+                    </label>
+                    <label id="loadingPayBtn"  #loadingPayBtn style="display: none;">
+                        Loading...
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </label>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <label>&nbsp;- information provided by
+        <a href="https://finance.yahoo.com/" target="_blank">
+            <img class="yahoo-img" src="http://localhost:3000/assets/photos/Yahoo_Finance.png" alt="Yahoo-finance">
+        </a>
+    </label>
+</div>

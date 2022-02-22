@@ -1,0 +1,32 @@
+@import "../../../../variables.scss";
+.control {
+    background: $theme-10;
+    height: 100% !important;
+}
+
+
+.breadcrumb-item {
+    color: #fafafa !important;
+    label {
+        opacity: 0.6;
+    }
+}
+.notificationCircle{
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    padding: 1px;
+    background: red;
+    border: 1px solid #fafafa;
+    border-radius: 50%;
+}
+img{
+height: 400px !important;
+width: 400px !important;
+}
+.btn{
+    margin: 5px;
+}

@@ -1,0 +1,501 @@
+@import "../../../../variables.scss";
+
+.home {
+    background: $theme-5;
+    color: $theme-3;
+    position: absolute;
+    width: 100%;
+    .cardShow {
+        position: relative;
+        top: 40px;
+        // left: 120px;
+        border: 0.4px solid white;
+        width: 21rem;
+        height: 12rem;
+        border-radius: 13px;
+        box-shadow: 8px 8px 0px $theme-2, -8px -8px 0px $theme-6;
+        transition: box-shadow 0.3s ease-in;
+        h1 {
+            padding: 10px 20px;
+            color: $theme-1;
+            font-family: $mukta;
+            -webkit-text-stroke-width: 0.6px;
+            -webkit-text-stroke-color: white;
+        }
+        .top {
+            border-radius: 13px 13px 0 0;
+            height: 50%;
+            background: rgb(161, 238, 238);
+            background: linear-gradient(300deg, $theme-1 0%, $theme-2 35%, $theme-3 100%);
+            p {
+                position: relative;
+                top: -10px;
+                text-align: center;
+                color: $gray;
+                font-size: 22px;
+                font-weight: bolder;
+                -webkit-text-stroke-width: 0.2px;
+                -webkit-text-stroke-color: $theme-7;
+                -webkit-text-fill-color: $theme-8;
+            }
+        }
+        .bottom {
+            border-top: 1px solid $theme-1;
+            border-radius: 0 0 13px 13px;
+            height: 50%;
+            background: $theme-7;
+            label {
+                font-family: $secular;
+                padding-left: 40px;
+                padding-top: 20px;
+                color: $theme-2;
+                font-size: 12px;
+            }
+            p {
+                font-family: $font-family2;
+                padding-left: 42px;
+                color: $theme-2;
+                font-size: 14px;
+                margin-top: -2px;
+                font-weight: lighter;
+            }
+            h4 {
+                text-align: center;
+                position: relative;
+                top: -15px;
+                left: -30px;
+                color: $theme-2;
+            }
+            i {
+                position: absolute;
+                display: inline-block;
+                left: 82%;
+                top: 70%;
+                font-size: 40px;
+                color: $theme-2;
+            }
+        }
+    }
+    .cardShow:hover {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+        transition: box-shadow 0.3s ease-out;
+    }
+
+    .left-col {
+        padding: 20px;
+        font-family: $secular;
+        h1 {
+            font-size: 5rem;
+            color: $theme-1;
+            -webkit-text-stroke-width: 0.6px;
+            -webkit-text-stroke-color: $theme-2;
+        }
+    }
+}
+
+svg {
+    position: relative;
+    z-index: 1;
+}
+path {
+    stroke: $theme-6;
+    fill: $theme-1;
+}
+.lower {
+    height: 60rem;
+    top: -1px;
+    z-index: 2;
+    position: relative;
+    display: block;
+    background-color: $theme-1;
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+    #headline {
+        font-size: 60px;
+        color: $theme-6;
+        text-shadow: -5px 5px 0px $theme-4, -10px 10px 0px $theme-3, -15px 15px 0px $theme-2;
+    }
+    h2 {
+        padding-top: 20px;
+        // margin-top: -60px;
+        font-size: 26px;
+        color: $theme-7;
+        // text-shadow: -4px 4px 0px $theme-4, -8px 8px 0px $theme-3, -12px 12px 0px $theme-2;
+        font-weight: bolder;
+    }
+    h3 {
+        padding-top: 20px;
+        color: $theme-2;
+        position: relative;
+        font-size: 10px;
+    }
+
+    .dollar {
+        text-align: center;
+        width: 100%;
+        padding-top: 20px;
+        transition: color 1s ease-in-out;
+
+        i {
+            color: $theme-3;
+            position: relative;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 10px;
+            font-size: 40px;
+            transition: color  0.2s ease-in-out;
+        }
+        i:hover{
+            color: $theme-1;
+        }
+    }
+
+}
+.palm {
+    // height: 65vh;
+    padding-top: 100px;
+    background-color: $theme-1;
+    .img-palm {
+        padding-top: 200px;
+        padding-bottom: 40px;
+        background-color: #fafafa;
+        width: 100%;
+        // height: 60vh;
+        border-top: 01px solid $theme-2;
+        border-bottom: 01px solid $theme-2;
+    }
+
+    h1 {
+        position: absolute;
+        // padding: 120px;
+        margin-top: 80px;
+        margin-right: 00px;
+        color: $theme-7;
+    }
+}
+
+.display {
+    position: relative;
+    // top: 0px;
+    // height: 65vh;
+    // color: $theme-8;
+    background: $theme-background-dark;
+    background: $theme-gradient-dark;
+    border: 0;
+    ul {
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+        border: 0;
+        border-top: 1px solid $theme-5;
+    }
+    li {
+        button {
+            color: $theme-4;
+            border: 0;
+            // padding-left: 0;
+            // padding-right: 0;
+            margin: 20px;
+            padding: 0;
+        }
+        .active {
+            color: $theme-1;
+            background-color: transparent;
+
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            border-bottom: 2px solid $theme-1;
+        }
+    }
+    .tab-content {
+        border-radius: 40px 40px 0px 0px;
+        height: 600px;
+        width: 400px;
+        padding-top: 4vh;
+        background-color: $theme-background-light;
+        background: $theme-gradient-light;
+        margin: auto;
+    }
+}
+.nav-link {
+    font-family: $font-family;
+}
+// - - Media Queries - - Media Queries - - Media Queries - - Media Queries - -
+@media only screen and (max-width: 800px) {
+    .home {
+        .cardShow {
+            top: 0px;
+            left: 96px;
+        }
+        .left-col {
+            position: relative;
+            display: contents;
+            h1 {
+                position: relative;
+                left: 3%;
+                padding: 20px;
+            }
+        }
+        .right-col {
+            position: relative;
+        }
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .cardShow {
+        top: 0px;
+        left: 20px;
+        margin-left: -50px;
+    }
+    svg {
+        fill: $theme-6;
+    }
+    .home {
+        .left-col {
+            h1 {
+                position: relative;
+                left: 8%;
+                padding: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .home {
+        .cardShow {
+            left: 64px;
+        }
+        .left-col {
+            h1 {
+                position: relative;
+                left: 2%;
+                padding: 20px;
+            }
+        }
+    }
+}
+
+// - - stocks - - stocks - - stocks - - stocks - - stocks - - stocks - -
+
+#stocks {
+    canvas {
+        z-index: 2;
+        color: $theme-4;
+    }
+    .col-12 {
+        margin-top: -10px;
+        p {
+            color: $theme-8;
+            font-family: $font-family;
+            padding: 0;
+            font-size: 30px;
+            text-align: center;
+            font-weight: 800;
+        }
+    }
+    .row {
+        position: relative;
+        margin: auto;
+
+        p {
+            font-family: $font-family;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    }
+}
+// - - wire - - wire - - wire - - wire - - wire - - wire - -
+#wire {
+    mat-slider {
+        width: 360px;
+        position: relative;
+        left: 5%;
+    }
+    .card-title {
+        position: relative;
+        margin-left: 15%;
+        p {
+            color: $theme-6;
+            font-size: 34px;
+            font-weight: 600;
+        }
+        padding-top: 4rem;
+    }
+    .wire-value-row {
+        // position: relative;
+        justify-content: center;
+        margin-left: 5%;
+        p,
+        i {
+            font-size: 20px;
+            color: $theme-5;
+        }
+        p {
+            font-family: $font-family;
+        }
+        i {
+            position: relative;
+            font-size: 40px;
+            left: 5%;
+            top: -5%;
+        }
+    }
+    .arrow-box {
+        position: relative;
+        justify-content: center;
+        margin: auto;
+        padding-left: 30%;
+        font-size: 140px;
+        color: $theme-3;
+
+        i {
+            text-shadow: rgb(47, 151, 184) 2px 0px 0px, rgb(47, 151, 184) 0.540302px 0.841471px 0px,
+                rgb(47, 151, 184) -0.416147px 0.909297px 0px, rgb(47, 151, 184) -0.989992px 0.14112px 0px,
+                rgb(47, 151, 184) -0.653644px -0.756802px 0px, rgb(47, 151, 184) 0.283662px -0.958924px 0px,
+                rgb(47, 151, 184) 0.96017px -0.279415px 0px;
+                transition: text-shadow 1s, color 1s, margin-left 1s;
+        }
+
+        i:hover {
+            margin-left: -2%;
+            color: $theme-6;
+            text-shadow: $theme-4 20px 0px 0px, $theme-7 0.540302px 0.841471px 0px, $theme-6 -0.416147px 0.909297px 0px,
+                $theme-7 -0.989992px 0.14112px 0px, $theme-6 -0.653644px -0.756802px 0px,
+                $theme-7 0.283662px -0.958924px 0px, $theme-6 0.96017px -0.279415px 0px;
+        }
+    }
+
+    .slider-box {
+        padding-bottom: 2rem;
+    }
+}
+// - - loans - - loans - - loans - - loans - - loans - - loans - -
+#loan {
+    p {
+        padding-top: 10px;
+        font-size: 28px;
+        color: $theme-8;
+        font-family: $font-family;
+        padding-left: 1.4rem;
+        font-weight: bolder;
+    }
+    .list-group {
+        padding-left: 1rem;
+        position: relative;
+        margin: auto;
+        justify-content: center;
+        margin-top: 40px;
+        .active {
+            background: $theme-9;
+            background: $theme-gradient-medium;
+            border: 1px solid $theme-5;
+            p {
+                color: $theme-2;
+            }
+        }
+        p {
+            color: $theme-7;
+        }
+    }
+}
+// - - saving - - saving - - saving - - saving - - saving - - saving - -
+#saving {
+    padding-top: 2rem;
+    svg {
+        padding-top: 2rem;
+        position: relative;
+        left: 8%;
+        top: -5%;
+    }
+    path {
+        stroke: $theme-9;
+        stroke-width: 2px;
+        fill: $theme-3;
+        color: $theme-7;
+        text-shadow: $text-border-light;
+        -webkit-box-shadow: 0px 9px 50px 5px $theme-9;
+        box-shadow: 0px 9px 50px 5px $theme-9;
+    }
+    hr {
+        border: 1px solid $theme-8;
+    }
+    label {
+        width: 100px;
+        border-left:1px solid $theme-4;
+        border-right:1px solid $theme-4;
+
+        // border-radius: 20%;
+        justify-content: center;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bolder;
+        color: $theme-6;    
+       
+    }
+
+    .saving-labels {
+        padding-top: 2rem;
+        margin-left: -5%;
+        // justify-content: center;
+    }
+}
+.no-border{
+    border: none !important;
+}
+
+.headline-p {
+    font-size: 28px;
+    color: $theme-8;
+    font-family: $font-family;
+    padding-left: 3rem;
+    font-weight: bolder;
+}
+.rainbow {
+    position: relative;
+    margin-top: 20%;
+    z-index: 0;
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 2rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -2;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background-color: $theme-5;
+        background-repeat: no-repeat;
+        background-size: 50% 50%, 50% 50%;
+        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+        background-image: linear-gradient($theme-1, $theme-2), linear-gradient($theme-3, $theme-4),
+            linear-gradient($theme-5, $theme-6), linear-gradient($theme-7, $theme-8);
+        animation: rotate 4s linear infinite;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 6px;
+        top: 6px;
+        width: calc(100% - 12px);
+        height: calc(100% - 12px);
+        background: $theme-7;
+        border-radius: 5px;
+    }
+}
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}

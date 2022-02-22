@@ -1,0 +1,189 @@
+<app-loading id="loading" style="display: none;"></app-loading>
+<div class="back-message">
+    <div class="container" *ngIf="selectedUser.email">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="title">Please Provide a Reason For Your Decision :</h4>
+            </div>
+        </div>
+        <div class="container" id="userContainer">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label>User Name:</label>
+                    <label>{{selectedUser.firstName }} {{selectedUser.lastName}}</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <label>Balance:</label>
+                    <label>{{selectedUser.balance | number}}$</label>
+                </div>
+                <div class="col-12 col-md-4">
+                    <label>Email:</label>
+                    <label>{{selectedUser.email}}</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container" id="loanConatiner" *ngIf="selectedLoan.userID">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label>Loan Amount:</label>
+                    <label>{{selectedLoan.totalAmount | number}}$</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Interest Rate:</label>
+                    <label>{{selectedLoan.interestRate}}</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Monthly Pay:</label>
+                    <label>{{selectedLoan.payPerMonth | number}}$</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Minimum Balance:</label>
+                    <label>{{selectedLoan.minBalance | number}}$</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Spread:</label>
+                    <label>{{selectedLoan.years}} years</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Decision:</label>
+                    <label>{{selectedDecision}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="checkContainer" *ngIf="selectedCheck.userID">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label>Check Amount:</label>
+                    <label>{{selectedCheck.amount | number}}$</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>From:</label>
+                    <label>{{selectedCheck.name}}</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Bank Number:</label>
+                    <label>{{selectedCheck.bankNumber }}</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Date:</label>
+                    <label>{{selectedCheck.date }}</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Date Added:</label>
+                    <label>{{selectedCheck.dateAdded}}</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label>Decision:</label>
+                    <label>{{selectedDecision}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="cardContainer" *ngIf="selectedCard.userID">
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <label>Card Number:</label>
+                <label>{{selectedCard.cardNumber }}$</label>
+            </div>
+            <div class="col-12 col-md-3">
+                <label>Expiration:</label>
+                <label>{{selectedCard.expMonth}}/{{selectedCard.expYear}}</label>
+            </div>
+            <div class="col-12 col-md-3">
+                <label>Provider:</label>
+                <label>{{selectedCard.provider }}</label>
+            </div>
+            <div class="col-12 col-md-3">
+                <label>Monthly Limit:</label>
+                <label>{{selectedCard.monthlyLimit }}</label>
+            </div>
+            <div class="col-12 col-md-3">
+                <label>Date Added:</label>
+                <label>{{selectedCard.dateAdded}}</label>
+            </div>
+            <div class="col-12 col-md-3">
+                <label>Decision:</label>
+                <label>{{selectedDecision}}</label>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="container" id="sendMessageContainer" *ngIf="selectedUser._id">
+        <form [formGroup]="newMessage">
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-2 col-12">
+                        <label class="form-label">User:</label>
+                    </div>
+                    <div class="col-md-10 col-12">
+                        <p>{{selectedUser.firstName}} {{selectedUser.lastName}}</p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-2 col-12 form-label">
+                        <label>Title:</label>
+                    </div>
+                    <div class="col-md-10 col-12">
+                        <input type="text" class="form-control" formControlName="title" id="title"
+                            (change)="validateMessage()">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-2 col-12 form-label">
+                        <label>Body:</label>
+                    </div>
+
+                    <div class="col-md-10 col-12">
+                        <div class="form-control " id="sumLoan" style="height: 100px;" *ngIf="selectedLoan.userID">
+                            Loan Amount: {{selectedLoan.totalAmount}},
+                            Spread: {{selectedLoan.years}},
+                            Interest Rate: {{selectedLoan.interestRate}},
+                            Monthly Pay: {{selectedLoan.payPerMonth}},
+                            Min Balance: {{selectedLoan.minBalance}},
+                            Date Added: {{selectedLoan.dateAdded}}
+                        </div>
+                        <div class="form-control" id="sumCard" style="height: 100px;" *ngIf="selectedCard.userID">
+                            Card Number: {{selectedCard.cardNumber}},
+                            Expiration: {{selectedCard.expMonth}}/{{selectedCard.expYear}},
+                            Provider: {{selectedCard.provider}},
+                            Monthly Limit: {{selectedCard.monthlyLimit}},
+                            Date Added: {{selectedCard.dateAdded}}
+                        </div>
+                        <div class="form-control" id="sumCheck" style="height: 100px;" *ngIf="selectedCheck.userID">
+                            From: {{selectedCheck.name}},
+                            Bank Number: {{selectedCheck.bankNumber}},
+                            Amount: {{selectedCheck.amount}},
+                            Check Date: {{selectedCheck.date}},
+                            Date Added: {{selectedCheck.dateAdded}}
+                        </div>
+                        <textarea class="form-control" id="bodyTextarea" rows="5" style="height: 200px;"
+                            formControlName="body" id="body" (change)="validateMessage()"
+                            style="resize: none;height: 200px;" maxlength="151"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-2"></div>
+                    <div class="col-10">
+                        &nbsp;<small class="text-muted">max length of 151</small>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </form>
+        <div class="row text-center">
+            <div class="col-12">
+                <button class="btn btn-success btn-lg" type="submit" [disabled]="this.messageBol"
+                    (click)="sendMessage()" id="sendBtn" data-bs-dismiss="modal">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

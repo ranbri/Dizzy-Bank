@@ -1,0 +1,36 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="cancelCardModal">Cancel Card</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <h4>Cancellation Terms:</h4>
+                <br>
+                <h6 class="text-muted">-Cancellation request needs an approval from an admin.</h6>
+                <br>
+                <h6 class="text-muted">-Future payments outside this bank will not be accepted on this card after
+                    cancellation.</h6>
+                <br>
+                <h6 class="text-muted">-We "Dizzy inc." do not hold ourselves accountable for any future payment on a
+                    cancelled card and or a debt that may result from it by outside stores and/or providers.</h6>
+                <br>
+                <h6 class="text-muted">-By cancelling your card all future payments made by us "Dizzy inc." on this card
+                    will be fulfilled at the time of cancellation. </h6>
+                <br>
+                <h6 class="text-danger">-Once cancellation is pending it can not be reversed. </h6>
+                <br>
+                <input class="form-check-input" type="checkbox" [checked]="checkboxCancel"
+                    (change)="checkboxCancel = !checkboxCancel" id="checkboxCancel">&nbsp;
+                <span class="form-check-label"> By checking this box u hereby agree to the terms above.</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-danger" type="button" [disabled]="!checkboxCancel" (click)="cancelCard()"
+                data-bs-dismiss="modal">Cancel Card</button>
+        </div>
+    </div>
+</div>

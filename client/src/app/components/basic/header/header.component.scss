@@ -1,0 +1,41 @@
+@import "../../../../variables.scss";
+
+
+
+#collapsibleNavbar{
+    justify-content: right;
+}
+.navbar-brand {
+    font-family: $mukta;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: $theme-2;
+}
+.navbar-light {
+    background: $theme-gradient-light;
+}
+.btn-outline-info {
+    border: 0px solid $theme-4 !important;
+    color: $theme-4;
+    border-radius: 50px !important;
+}
+.btn-outline-info:hover {
+    background-color: $theme-4;
+    border: 0px solid $theme-1;
+    color: $theme-1;
+}
+
+.btn-outline-info::before {
+    border: 0;
+}
+
+.fas {
+    color: $theme-6;
+}
+
+.search-input::placeholder {
+    color: $theme-7;
+}

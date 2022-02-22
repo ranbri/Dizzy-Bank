@@ -1,0 +1,139 @@
+
+@use '@angular/material' as mat;
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
+
+
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$blue-palette, 500);
+$my-accent: mat.define-palette(mat.$cyan-palette);
+
+$my-theme: mat.define-dark-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ )
+));
+
+@include mat.all-component-themes($my-theme);
+
+ 
+$font-family: "Poppins";
+$font-family2: "Roboto Condensed", sans-serif;
+$mukta: 'Mukta', sans-serif;
+$secular: 'Secular One', sans-serif;
+
+
+$semi: #bfd6d2;
+
+$mainLight: rgb(150, 206, 194);
+$text: rgb(0, 107, 80);
+$gray: rgb(110, 110, 110);
+$lightGray: rgb(160, 226, 226);
+$box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+$border: 1.5px solid;
+$disabled: #596275;
+$check: 1px solid red;
+
+$strong: rgb(128, 161, 161);
+$main: red;
+$bright:#f7c7d2;
+
+$theme-10:#312f2f;
+$theme-9:#1c3741;
+$theme-8:#234a5c;
+$theme-7:#28657a;
+$theme-6:#2c7e98;
+$theme-5:#2f97b8;
+$theme-4:#62afcb;
+$theme-3:#93c5da;
+$theme-2:#bfdce8;
+$theme-1:#eaf3f7;
+
+$theme-gray:#e0e0e036;
+
+$theme-error-light:#facece;
+$theme-error-medium:#cb6262;
+$theme-error-dark:#7a2828;
+$theme-success-light:#e7face;
+$theme-success-medium:#62cb6b;
+$theme-success-dark:#287a36;
+
+
+
+
+$theme-background-light: $theme-1;
+$theme-gradient-light: linear-gradient(167deg, $theme-3 16%, $theme-2 75%, $theme-1 100%);
+$theme-background-medium: $theme-4;
+$theme-gradient-medium: linear-gradient(167deg, $theme-6 16%, $theme-5 75%, $theme-4 100%);
+$theme-background-dark: $theme-4;
+$theme-gradient-dark: linear-gradient(167deg, $theme-9 16%, $theme-8 75%, $theme-7 100%);
+
+$text-border-light: rgb(191, 220, 232) 1px 0px 0px, rgb(191, 220, 232) 0.540302px 0.841471px 0px, rgb(191, 220, 232) -0.416147px 0.909297px 0px, rgb(191, 220, 232) -0.989992px 0.14112px 0px, rgb(191, 220, 232) -0.653644px -0.756802px 0px, rgb(191, 220, 232) 0.283662px -0.958924px 0px, rgb(191, 220, 232) 0.96017px -0.279415px 0px;
+$text-border-medium:rgb(47, 151, 184) 1px 0px 0px, rgb(47, 151, 184) 0.540302px 0.841471px 0px, rgb(47, 151, 184) -0.416147px 0.909297px 0px, rgb(47, 151, 184) -0.989992px 0.14112px 0px, rgb(47, 151, 184) -0.653644px -0.756802px 0px, rgb(47, 151, 184) 0.283662px -0.958924px 0px, rgb(47, 151, 184) 0.96017px -0.279415px 0px;
+$text-border-dark: rgb(40, 101, 122) 1px 0px 0px, rgb(40, 101, 122) 0.540302px 0.841471px 0px, rgb(40, 101, 122) -0.416147px 0.909297px 0px, rgb(40, 101, 122) -0.989992px 0.14112px 0px, rgb(40, 101, 122) -0.653644px -0.756802px 0px, rgb(40, 101, 122) 0.283662px -0.958924px 0px, rgb(40, 101, 122) 0.96017px -0.279415px 0px;
+
+
+$queen-express-8:#2d3319;
+$queen-express-7:#517664;
+$queen-express-4:#8fc0a9;
+$queen-express-3:#c8d5b9;
+$queen-express-2:#faf3dd;
+$queen-express-1:#eaf3f7; 
+
+
+$globen-8:#5c232c;
+$globen-7:#765157;
+$globen-4:#b80c09;
+$globen-3:#d5a36a;
+$globen-2:#fbfbff;
+$globen-1:#f7f5ea;
+
+
+$cred-it-8:#234a5c;
+$cred-it-7:#28657a;
+$cred-it-4:#62afcb;
+$cred-it-3:#93c5da;
+$cred-it-2:#bfdce8;
+$cred-it-1:#eaf3f7;
+
+
+$diaval-8:#525252;
+$diaval-7:#660000;
+$diaval-4:#bbbbbb;
+$diaval-3:#d2d3d3;
+$diaval-2:#dee1e2;
+$diaval-1:#f1f1f1;
+
+
+$kiwi-8:#234a5c;
+$kiwi-7:#312f2f;
+$kiwi-4:#a6d9f7 ;
+$kiwi-3:#84dccf;
+$kiwi-2:#d3e0bc;
+$kiwi-1:#fdfae2;
+
+$stacks-8:#58093a;
+$stacks-7:#7a104a;
+$stacks-4:#cb6262;
+$stacks-3:#da9393;
+$stacks-2:#e4e4e4;
+$stacks-1:#f3f7ea;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

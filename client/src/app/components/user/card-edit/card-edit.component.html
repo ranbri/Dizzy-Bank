@@ -1,0 +1,105 @@
+<app-loading id="loading" style="display: none;"></app-loading>
+<div class="card-edit body-{{myCard.provider}} {{myCard.status}}">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            &nbsp;
+            <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+            <li class="breadcrumb-item"><a routerLink="/myAccount">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Card Info</li>
+        </ol>
+    </nav>
+    <div class="container justify-content-center">
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h3>{{myCard.status | titlecase}}</h3>
+            </div>
+            <div class="cards col-12 col-md-6 col-xl-4">
+                <app-cards class="myCard " [myCard]="myCard" [user]="user" *ngIf="cardID "></app-cards>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <hr>
+        <br>
+        <div class="row text-center">
+            <div class="col-12 col-md-6 col-lg-3 stats">
+                <label class="h6">Provider:</label>
+                <label class="h6">&nbsp; {{myCard.provider | titlecase}}</label>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 stats">
+                <label class="h6">Monthly Limit:</label>
+                <label class="h6">&nbsp; {{myCard.monthlyLimit }}&dollar;</label>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 stats">
+                <label class="h6">Date Added:</label>
+                <label class="h6">&nbsp; {{myCard.dateAdded | date}}</label>
+            </div>
+            <div class="col-12  col-md-6 col-lg-3 stats">
+                <p class="text-danger">{{ myCard.status == "cancelled" ? "Card is cancelled." : ""}}</p>
+                <p>{{ myCard.status == "pending" ? "Awaiting Cancelation" : ""}}</p>
+                <a class="link-danger" style="cursor: pointer;"
+                    *ngIf="myCard.status == 'active' ? 'Awaiting Cancelation' : ''" data-bs-target="#cancelCardModal"
+                    data-bs-toggle="modal">Cancel card?</a>
+
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="container" *ngIf='myCard.status === "active" || myCard.status === "pending"'>
+            <div class="row">
+                <div class="col-2">
+                    <h3>Credit Left:</h3>
+                </div>
+                <div class="col-8">
+                    <span id="rangeValue">{{myCard.monthlyLimit - myCard.usedCredit}}&dollar;</span>
+                </div>
+            </div>
+            <div class="row text-center">
+
+                <div class="col-3 col-md-2">
+                    <span class="h4">{{myCard.usedCredit}}&dollar;</span>
+                </div>
+
+                <div class="col-6 co-md-8">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" id="progress-bar-limit"
+                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <div class="col-3 col-md-2">
+                    <span class=" h4">{{myCard.monthlyLimit}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+
+
+            <app-card-payments [user]='user' [payments]='payments'></app-card-payments>
+
+        </div>
+        <div class="row text-center" id="paymentsLoading">
+            <div class="col-12"  >
+                <div class="lds-ellipsis " >
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+    <!-- Modal -->
+    <div class="modal  fade" id="cancelCardModal" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="cancelCardModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-center">
+            <app-cancel-card [myCard]="myCard"></app-cancel-card>
+        </div>
+    </div>

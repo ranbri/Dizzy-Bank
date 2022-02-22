@@ -1,0 +1,9 @@
+
+<div class="contaienr">
+    
+</div>
+<div class="conatiner" *ngIf="payments.length">
+    <div class="pay" *ngFor='let payment of payments'>
+        <app-invoice [payment]='payment'></app-invoice>
+    </div>
+</div>

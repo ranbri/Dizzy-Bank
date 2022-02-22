@@ -1,0 +1,25 @@
+@import "../../../../../variables.scss";
+
+.modal-content {
+    padding: 20px;
+    font-family: $mukta;
+    .container {
+        background: #fafafa;
+        padding: 20px;
+        border: 1px solid $theme-8;
+        border-radius: 6px;
+        .active {
+            color: $theme-1;
+            background: $theme-gradient-dark !important ;
+        }
+    }
+}
+
+.disabled{
+    background: rgb(243, 243, 243);
+    color: rgb(207, 207, 207);
+}
+
+.dark-text{
+    color: $theme-8;
+}

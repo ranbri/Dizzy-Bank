@@ -1,0 +1,47 @@
+<app-loading style="display: none;" id="loading"></app-loading>
+<div class="login ">
+  <nav
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      &nbsp;
+      <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Login</li>
+    </ol>
+  </nav>
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-4">
+        <label class="form-label">Email</label>
+        <div class="input-group ">
+          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-at"></i></span>
+          <input type="email" class="form-control" [(ngModel)]="user.email" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-asterisk"></i></span>
+          <input type="password" class="form-control" id="validationCustom01" [(ngModel)]="user.password" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-8">
+        <p #errorMessage> </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-8">
+        <button class="btn btn-outline-secondary " (click)="login()" type="submit">Login</button>
+        &nbsp;
+        <span>Still don't have an account with us?</span> &nbsp; <a routerLink="/register" class="">sign up !</a>
+      </div>
+    </div>
+  </div>
+</div>

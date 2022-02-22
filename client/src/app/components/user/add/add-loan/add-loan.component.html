@@ -1,0 +1,133 @@
+<app-loading id="loading" style="display: none;"></app-loading>
+<div class="modal-content">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <form [formGroup]="application">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center dark-text"> Loan Plan Application:</h1>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <label class="input-group-text dark-text">Loan Amount:</label>
+                <select class="form-select " formControlName="amount" (change)="generateRequirements()" required>
+                    <option disabled value="0" selected="selected">Choose Amount of Loan.</option>
+                    <option value="100000">100,000$</option>
+                    <option value="50000">50,000$</option>
+                    <option value="40000">40,000$</option>
+                    <option value="30000">30,000$</option>
+                    <option value="20000">20,000$</option>
+                    <option value="10000">10,000$</option>
+                    <option value="5000">5,000$</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label class="input-group-text dark-text">Payment Due Time:</label>
+                <select class="form-select" formControlName="planTime" (change)="generateRequirements()" required>
+                    <option disabled value="0" selected="selected">Choose Loan Spread Time.</option>
+                    <option value="30">30 Years</option>
+                    <option value="10">10 Years</option>
+                    <option value="5">5 Years</option>
+                    <option value="4">4 Years</option>
+                    <option value="3">3 Years</option>
+                    <option value="2">2 Years</option>
+                    <option value="1">1 Year</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <label class="input-group-text dark-text">Monthly Pay:</label>
+                <p class="form-control text-center disabled generated" style="height:38px;" id="monthlyPay">
+                    {{this.generated.monthly == "" ? "auto generated" : this.generated.monthly }}
+                </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label class="input-group-text dark-text">Interest Rate:</label>
+                <p class="form-control text-center disabled generated" style="height:38px;" id="interestRateReq">
+                    {{this.generated.monthly == "" ? "auto generated" : this.generated.interest }}
+                </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label class="input-group-text dark-text">Needed Balance:</label>
+                <p class="form-control text-center disabled generated" style="height:38px;" id="balanceReq">
+                    {{this.generated.monthly == "" ? "auto generated" : this.generated.balance }}
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-left text-muted " style="height:28px;">
+                    *generated monthly pay is before interest rate.
+                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-left text-muted " style="height:28px;">
+                    *Manual pay is <label  class="h6 text-success"> interest rate free.</label > we at Dizzy bank are happier when u pay your debt whether we make a profit out of it or don't.
+                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-left text-muted " style="height:28px;">
+                    *Monthly pay will remain the same amount and will not change after manual pay.
+                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-left text-muted " style="height:38px;">
+                    *We "Dizzy inc" hold the right to decline a loan request as we see fit.
+                </small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <small class="text-left text-muted " style="height:38px;">
+                    *A loan may be applied even if Requirements are not met and will be considered for
+                    approval by a
+                    banker.
+                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-left text-muted " style="height:38px;">
+                    *Loan terms are permenant and can not be changed at any time by any bank personal.
+                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <small class="text-left text-muted " style="height:38px;">
+                    *Failling to pay the monthly interest will result in late fees and even foreclosure of
+                    assets
+                    and/or
+                    bank account.
+                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <small class="text-left text-muted " style="height:38px;">
+                    *By clicking the "apply" button below you hereby agree to the loan terms stated above.
+                </small>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-12 text-center">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-secondary" (click)="addLoan()" data-bs-dismiss="modal" [disabled]="
+                    this.application.invalid
+                    ">Apply</button>
+            </div>
+        </div>
+    </form>
+</div>

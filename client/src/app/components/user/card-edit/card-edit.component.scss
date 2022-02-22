@@ -1,0 +1,70 @@
+@import "../../../../variables.scss";
+.body-kiwi{
+    background: $kiwi-2 ;
+    color: $kiwi-7;
+    height: 100%;
+    width: 100%;
+    .range{
+        background: $kiwi-2;
+        box-shadow: inset 0 0 5px $kiwi-2;
+    }
+    #rangeValue{
+        color: $kiwi-7;
+    }
+    .range::-webkit-slider-thumb {
+        background: $kiwi-8;
+        border: 4px solid $kiwi-8;
+        box-shadow: -407px 0 0 400px $kiwi-8;
+    }
+}
+
+
+
+.topRow {
+    position: relative;
+    top: 40px;
+}
+hr{
+    width: 80vw;
+    margin: auto;
+}
+
+
+#rangeValue {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 6em;
+    
+    font-weight: 400;
+  }
+  .range {
+      width: 90% !important;
+    height: 15px;
+    -webkit-appearance: none;
+    
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    
+  }
+  .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: default;
+    background: $stacks-8;
+    border: 4px solid $stacks-8;
+    box-shadow: -407px 0 0 400px $stacks-8;
+  }
+
+  .payment{
+      border: 1px solid $theme-8;
+      border-radius: 20px;
+      padding: 20px;
+      background: #fafafa;
+      color: $theme-10;
+      margin-top: 5px;
+      font-size: 20px;
+  }
