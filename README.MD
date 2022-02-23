@@ -213,7 +213,7 @@ Project Link: [https://github.com/ranbri/Dizzy-Bank](https://github.com/ranbri/D
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Components.ai Theme Generator](https://components.ai/theme/RGB-linear)
-* [coolors.co color generator](https://coolors.co/)
+* [Coolors.co color generator](https://coolors.co/)
 * [Netlify spinner library](https://netlify.app/)
 * [Charts.JS](https://www.chartjs.org/)
 * [Img Shields](https://shields.io)
