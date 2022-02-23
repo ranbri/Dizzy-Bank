@@ -16,7 +16,7 @@
 #####            -Cancel, reactivate, or delete cards.
 #####            -contact users.
 
-### Admin login information is:
-#### email: admin
-#### password: admin
+#### Admin login information is:
+##### email: admin
+##### password: admin
 
