@@ -2,19 +2,19 @@
 
 ## Dizzy is a web based banking app for those who struggle with complicated finacncial terms.
 ### Here you can : 
-#####                -Wire money to Dizzy bank users.
-#####                -Invest and sell stocks with realtime market information.
-#####                -apply for a comfortable loan.
-#####                -depoiste a check.
-#####                -get information about all ur purchases.
-#####                -contact admins.
+#####                1.Wire money to Dizzy bank users.
+#####                2.Invest and sell stocks with realtime market information.
+#####                3.apply for a comfortable loan.
+#####                4.depoiste a check.
+#####                5.get information about all ur purchases.
+#####                6.contact admins.
 
 ### Or you can be an admin!
 #### Admins can:
-#####            -Approve or decline a loan.
-#####            -Approve a decline a check.
-#####            -Cancel, reactivate, or delete cards.
-#####            -contact users.
+#####            1.Approve or decline a loan.
+#####            2.Approve a decline a check.
+#####            3.Cancel, reactivate, or delete cards.
+#####            4.contact users.
 
 #### Admin login information is:
 ##### email: admin
