@@ -25,10 +25,10 @@
     <img src="https://github.com/ranbri/Dizzy-Bank/blob/main/client/src/favicon.ico" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Dizzy Bank.</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    The bank that don't steal.
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
