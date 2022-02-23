@@ -197,19 +197,11 @@ Don't forget to give the project a star! Thanks again!
 
 
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@Linked-in](https://www.linkedin.com/in/ran-bar-ilan/) - LinkedIn
+Ran Bar Ilan - [@Linked-in](https://www.linkedin.com/in/ran-bar-ilan/) - LinkedIn
+Ran Bar Ilan - [@Facebook](https://www.facebook.com/ranbarilan) - Facebook
 
 Project Link: [https://github.com/ranbri/Dizzy-Bank](https://github.com/ranbri/Dizzy-Bank)
 
