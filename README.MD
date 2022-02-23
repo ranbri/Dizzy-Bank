@@ -199,7 +199,7 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 Ran Bar Ilan - [@Linked-in](https://www.linkedin.com/in/ran-bar-ilan/) - LinkedIn
-Ran Bar Ilan - [@Facebook](https://www.facebook.com/ranbarilan) - Facebook
+[@Facebook](https://www.facebook.com/ranbarilan) - Facebook
 
 Project Link: [https://github.com/ranbri/Dizzy-Bank](https://github.com/ranbri/Dizzy-Bank)
 
