@@ -7,6 +7,7 @@ import { Store } from '@ngxs/store';
 import { Login } from 'src/app/redux/user-store/actions';
 import { Router } from '@angular/router';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private store: Store,
     private authService: AuthService,
+    private userService: UserService,
     private router: Router,
     private title: Title,
   ) {
@@ -63,13 +65,13 @@ export class RegisterComponent implements OnInit {
     userValue['loggedIn'] = true;
     userValue['balance'] = 0;
     userValue['dateOfBirth'] = this.registration.controls['dateOfBirth'].value.toLocaleDateString();
-
-    this.authService.registerUser(userValue)
+    userValue['phone'] = this.phoneValue;
+    this.userService.registerUser(userValue)
       .subscribe((user: User): void => {
         if (user) {
           userValue['_id'] = user._id;
           this.user = userValue;
-          let addUser = userValue;
+          let addUser: User = userValue;
           this.store.dispatch(new Login({
             _id: addUser._id,
             firstName: addUser.firstName,
@@ -78,7 +80,7 @@ export class RegisterComponent implements OnInit {
             password: addUser.password,
             apartment: addUser.apartment,
             isAdmin: addUser.isAdmin,
-            phone: this.phoneValue,
+            phone: addUser.phone,
             loggedIn: addUser.loggedIn,
             city: addUser.city,
             entrance: addUser.entrance,

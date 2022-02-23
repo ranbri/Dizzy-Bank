@@ -37,123 +37,83 @@ export class AuthService {
     this.headerComponent.ngOnInit();
   }
 
-  public JWTUser(idToken: string) {
-    return this.http
-      .get(`http://localhost:3000/api/auth/jwtLogin`, {
-        observe: 'body',
-        withCredentials: true,
-        headers: new HttpHeaders()
-          .append('content-type', 'application/json')
-          .append("Authorization", "Bearer " + idToken)
-      })
-  }
 
 
 
-  public storageUser(user: User) {
-    localStorage.setItem('email', user.email || '')
-    localStorage.setItem('password', user.password || '')
-    localStorage.setItem('loggedIn', user.loggedIn ? 'true' : '')
-    localStorage.setItem('firstName', user.firstName || '')
-    localStorage.setItem('lastName', user.lastName || '')
-    localStorage.setItem('phone', user.phone || '')
-  }
+
+
 
   public async checkAuth() {
-    let user: User = {
-      email: localStorage.getItem('email') || "",
-      password: localStorage.getItem('password') || ""
-      //JWT -----
-    }
-    if (user) {
-      this.loginUser(user).subscribe((resUser: User) => {
-        if (
-          user.email !== resUser.email ||
-          user.firstName !== resUser.firstName ||
-          user.lastName !== resUser.lastName ||
-          user.password !== resUser.password ||
-          user.phone !== resUser.phone
-        ) {
-          this.storageUser(resUser);
-        }
-        this.reloadNav();
-        if (resUser) {
-          this.store.dispatch(new Login({
-            _id: resUser._id,
-            firstName: resUser.firstName,
-            lastName: resUser.lastName,
-            email: resUser.email,
-            password: resUser.password,
-            apartment: resUser.apartment,
-            isAdmin: resUser.isAdmin,
-            phone: resUser.phone,
-            loggedIn: resUser.loggedIn,
-            city: resUser.city,
-            entrance: resUser.entrance,
-            floor: resUser.floor,
-            house: resUser.house,
-            street: resUser.street,
-            zipcode: resUser.zipcode,
-            balance: resUser.balance,
-            accountNumber: resUser.accountNumber
-          }))
-        } else {
-          localStorage.clear();
-          this.router.navigate(['/home']);
-          this.reloadNav();
-        }
-
-      })
+    let cookieToken: string = document.cookie.replace('token=', '');
+    if (cookieToken) {
+      this.authUser(cookieToken)
+        .subscribe((resUser: User) => {
+          if (resUser._id) {
+            this.reloadNav();
+            this.store.dispatch(new Login({
+              _id: resUser._id,
+              firstName: resUser.firstName,
+              lastName: resUser.lastName,
+              email: resUser.email,
+              apartment: resUser.apartment,
+              isAdmin: resUser.isAdmin,
+              phone: resUser.phone,
+              loggedIn: resUser.loggedIn,
+              city: resUser.city,
+              entrance: resUser.entrance,
+              floor: resUser.floor,
+              house: resUser.house,
+              street: resUser.street,
+              zipcode: resUser.zipcode,
+              balance: resUser.balance,
+              accountNumber: resUser.accountNumber
+            }))
+          } else {
+            this.router.navigate(['/home']);
+            this.reloadNav();
+          }
+        })
     }
   }
 
 
 
-  public logoutUser(user?: User): Observable<User> | any {
-    if (user) {
-      localStorage.clear();
+  public logoutUser(): Observable<User> | any {
+    let cookieToken: string = document.cookie.replace('token=', '');
+    if (cookieToken) {
+      document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
       this.store.dispatch(new Logout())
-      this.reloadNav()
-      return this.http
-        .post<User>('http://localhost:3000/api/auth/logout', user, {
+      this.http
+        .get<User>('http://localhost:3000/api/auth/logout', {
           observe: 'body',
           withCredentials: true,
-          headers: new HttpHeaders().append('content-type', 'application/json')
-        })
+          headers: new HttpHeaders().append("Authorization", "Bearer " + cookieToken)
+        }).subscribe();
     } else {
-      localStorage.clear();
+      document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
       this.store.dispatch(new Logout())
-      this.reloadNav()
-      return
     }
 
   }
 
 
-  public registerUser(registered: User): Observable<User> {
-    return this.http
-      .post<User>('http://localhost:3000/api/auth/register', registered, {
-        observe: 'body',
-        withCredentials: true,
-        headers: new HttpHeaders().append('content-type', 'application/json')
-      })
+  public authUser(idToken: string) {
+    return this.http.get('http://localhost:3000/api/auth/login', {
+      observe: 'body',
+      withCredentials: true,
+      headers: new HttpHeaders()
+        .append("Authorization", "Bearer " + idToken)
+    })
   }
 
+  public loginUser(user: User) {
+    return this.http
+      .post('http://localhost:3000/api/auth/authUser', user, {
+        observe: 'body',
+        withCredentials: true,
+        headers: new HttpHeaders().append('content-type', 'application/json')
+      })
 
-  public loginUser(user: User): Observable<User> {
-    return this.http
-      .post<User>('http://localhost:3000/api/auth/login', user, {
-        observe: 'body',
-        withCredentials: true,
-        headers: new HttpHeaders().append('content-type', 'application/json')
-      })
   }
-  public getUserByAccountNumber(number: any): Observable<User> {
-    return this.http
-      .get<User>(`http://localhost:3000/api/auth/number/${number}`, {
-        observe: 'body',
-        withCredentials: true,
-        headers: new HttpHeaders().append('content-type', 'application/json')
-      })
-  }
+
 }

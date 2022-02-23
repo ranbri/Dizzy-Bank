@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 import { WireService } from 'src/app/services/wire.service';
 
 @Component({
@@ -28,6 +29,7 @@ export class WireComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private wireService: WireService,
     private store: Store,
 
@@ -52,7 +54,7 @@ export class WireComponent implements OnInit {
     let loadingBtn: any = document.getElementById('loadingBtn');
     nextBtn.style.display = 'none';
     loadingBtn.style.display = 'block';
-    this.authService.getUserByAccountNumber(number)
+    this.userService.getUserByAccountNumber(number)
       .subscribe((to: User) => {
         if (to) {
           if (to.accountNumber === this.user.accountNumber) {

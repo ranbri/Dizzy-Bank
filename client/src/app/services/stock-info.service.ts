@@ -114,7 +114,6 @@ export class StockInfoService {
   }
 
   public formatPage(arg: any) {
-    console.log(arg.dateSelector.first)
     if (arg.dateSelector.first) {
       arg.dateSelector.date = "";
       arg.dateSelector.first = "";

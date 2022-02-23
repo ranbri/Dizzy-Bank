@@ -91,7 +91,6 @@ import { WireComponent } from './components/user/wire/wire.component';
     // --------- Common Components
     InvoiceComponent,
     BuyStockComponent,
-    
   ],
   imports: [
     BrowserModule,

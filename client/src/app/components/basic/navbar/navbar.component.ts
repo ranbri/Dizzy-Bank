@@ -15,15 +15,9 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class NavbarComponent implements OnInit {
 
-  loggedIn: any = localStorage.getItem('loggedIn');
-  firstName: any = localStorage.getItem('firstName');
-  lastName: any = localStorage.getItem('lastName');
-  storageUser: User | any = {
-    email: localStorage.getItem('email'),
-    password: localStorage.getItem('password')
-  }
 
-  user:User = new User;
+  loggedIn: boolean = false;
+  user: User = new User;
 
   constructor(
     private store: Store,
@@ -31,38 +25,19 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   public logout() {
-    // this.authService.logout();
-    // this.authService.reloadNav();
-
-
-    this.authService.logoutUser(this.storageUser).subscribe()
+    this.authService.logoutUser()
   }
   ngOnInit(): void {
-    this.loggedIn = localStorage.getItem('loggedIn');
-    this.firstName = localStorage.getItem('firstName');
-    this.lastName = localStorage.getItem('lastName');
-
     this.authService.addNav(this);
-    this.loggedIn = localStorage.getItem('loggedIn');
-    if (this.loggedIn === "true") {
-      this.loggedIn = true;
-    } else {
-      this.loggedIn = false;
-    }
-    let authSub = this.store.select(state => state)
-      .subscribe(state => {
-        if(state.user.user.email){
-          this.user = state.user.user;
-
+    this.store.select(state => state.user)
+      .subscribe((user: any) => {
+     
+        if (user.user._id) {
+          this.user = user.user;
+        } else {
+          this.user = new User;
         }
       })
-
-
-
-
   }
-  
-
-
 }
 

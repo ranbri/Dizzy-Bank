@@ -4,7 +4,7 @@ import { Card } from 'src/app/models/card';
 import { Check } from 'src/app/models/check';
 import { Loan } from 'src/app/models/loan';
 import { User } from 'src/app/models/user';
-import { CheckAuth, GetCards, GetChecks, GetDecision, GetLoans, 
+import { CheckAuth, GetCards, GetChecks, GetDecision, GetLoader, GetLoans, 
     GetMessages, 
     GetPayments, 
     GetSelectedCard, GetSelectedCheck, GetSelectedLoan, GetSelectedUser, Login, Logout } from './actions'
@@ -29,7 +29,8 @@ import { DizzyStateModel } from './actions';
         selectedCheck: new Check,
         selectedLoan: new Loan,
         selectedCard: new Card,
-        decision: ""
+        decision: "",
+        loader: true
     }
 })
 @Injectable()
@@ -139,6 +140,13 @@ export class UserState {
         setState({
             ...state,
             decision: payload
+        })
+    }
+    @Action(GetLoader)
+    async getLoader({ getState, setState }: StateContext<DizzyStateModel>) {
+        const state = getState();
+        setState({
+            ...state
         })
     }
 }

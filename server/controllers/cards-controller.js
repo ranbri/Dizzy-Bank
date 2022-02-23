@@ -13,15 +13,11 @@ router.post('/add', (req, res, next) => {
         })
 });
 
-router.get('/cards/:id', async (req, res, next) => {
-    console.log(req.params.id)
-    await cardsLogic.findCards(req.params.id)
+router.get('/cards/:userID', async (req, res, next) => {
+    console.log(req.params.userID)
+    await cardsLogic.findCards(req.params.userID)
         .then((result) => {
-            if (result) {
-                res.send(result);
-            } else {
-                res.send("No Cards Found");
-            }
+            res.send(result);
         })
 });
 
@@ -33,7 +29,7 @@ router.get('/number/:number', async (req, res, next) => {
 });
 
 router.post('/cancel', (req, res, next) => {
-    cardsLogic.CancelCardById(req.body._id , req.body.status)
+    cardsLogic.CancelCardById(req.body._id, req.body.status)
         .then(() => {
             res.send(req.body)
         })

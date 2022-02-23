@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
+
   title = 'Login - Dizzy';
   user: User = {
     email: "",
@@ -40,43 +40,51 @@ export class LoginComponent implements OnInit {
     let loading: any = document.getElementById('loading');
     loading.style.display = 'block';
     this.errorMessage.nativeElement.innerHTML = "";
+
     this.authService.loginUser(this.user)
-      .subscribe((resUser: User): void => {
-        this.user['_id'] = resUser._id;
-        let loginUser = this.user;
-        this.authService.storageUser(resUser);
-        if (resUser.email === loginUser.email) {
-          resUser['loggedIn'] = true;
-          localStorage.setItem('loggedIn', "true")
-          this.authService.reloadNav();
-          this.store.dispatch(new Login({
-            _id: resUser._id,
-            firstName: resUser.firstName,
-            lastName: resUser.lastName,
-            email: resUser.email,
-            password: resUser.password,
-            apartment: resUser.apartment,
-            isAdmin: resUser.isAdmin,
-            phone: resUser.phone,
-            loggedIn: resUser.loggedIn,
-            city: resUser.city,
-            entrance: resUser.entrance,
-            floor: resUser.floor,
-            house: resUser.house,
-            street: resUser.street,
-            zipcode: resUser.zipcode,
-          }));
-          loading.style.display = 'none';
-          if (resUser.isAdmin) {
-            this.router.navigate(['/admin/control'])
-          } else {
-            this.router.navigate(['/myAccount'])
-          }
-        } else {
-          loading.style.display = 'none';
-          this.errorMessage.nativeElement.innerHTML =
-            '<i class="fas fa-asterisk"></i> Email or password is invalid.';
+      .subscribe(token => {
+        if (token) {
+          document.cookie = `token=${token}`;
+          this.authService.authUser(token.toString())
+            .subscribe((resUser: User) => {
+              if (resUser._id) {
+                this.user['_id'] = resUser._id;
+                let loginUser = this.user;
+                if (resUser.email === loginUser.email) {
+                  resUser['loggedIn'] = true;
+                  this.authService.reloadNav();
+                  this.store.dispatch(new Login({
+                    _id: resUser._id,
+                    firstName: resUser.firstName,
+                    lastName: resUser.lastName,
+                    email: resUser.email,
+                    password: resUser.password,
+                    apartment: resUser.apartment,
+                    isAdmin: resUser.isAdmin,
+                    phone: resUser.phone,
+                    loggedIn: resUser.loggedIn,
+                    city: resUser.city,
+                    entrance: resUser.entrance,
+                    floor: resUser.floor,
+                    house: resUser.house,
+                    street: resUser.street,
+                    zipcode: resUser.zipcode,
+                  }));
+                  loading.style.display = 'none';
+                  if (resUser.isAdmin) {
+                    this.router.navigate(['/admin/control'])
+                  } else {
+                    this.router.navigate(['/myAccount'])
+                  }
+                } else {
+                  loading.style.display = 'none';
+                  this.errorMessage.nativeElement.innerHTML =
+                    '<i class="fas fa-asterisk"></i> Email or password is invalid.';
+                }
+              }
+            })
         }
       })
+
   }
 }

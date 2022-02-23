@@ -18,7 +18,6 @@ export class AdminService {
 
   public fulfillLoan(userID: string, loanID: string, addedValue: any, dateApproved: string) {
     let increaseValue = { userID, loanID, addedValue, dateApproved }
-    console.log(increaseValue);
     return this.http
       .post('http://localhost:3000/api/admin//fulfill/loan', increaseValue, {
         observe: 'body',
@@ -36,7 +35,6 @@ export class AdminService {
   }
   public fulfillCheck(userID: string, checkID: string, addedValue: any, dateApproved: string, by: string) {
     let increaseValue = { userID, checkID, addedValue, dateApproved, by }
-    console.log(increaseValue);
     return this.http
       .post('http://localhost:3000/api/admin//fulfill/check', increaseValue, {
         observe: 'body',
@@ -90,12 +88,10 @@ export class AdminService {
     if (arg.selectedUser._id) {
       arg.loanService.getLoansByID(arg.selectedUser._id)
         .subscribe(((loans: Loan | any) => {
-          console.log(loans);
           if (loans.length) {
             arg.selectedUserLoans = loans;
             arg.loanService.setLoans(loans);
             loans.forEach((loan: any) => {
-              console.log(loan);
               container ? container.style.display = "block" : console.log("No Container");
               let card = document.createElement('div');
               card.className = 'checkCard requestItem';

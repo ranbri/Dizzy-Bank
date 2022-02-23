@@ -36,7 +36,8 @@ export interface DizzyStateModel {
   selectedCheck: Check,
   selectedLoan: Loan,
   selectedCard: Card,
-  decision: string
+  decision: string,
+  loader:boolean
 }
 
 
@@ -81,6 +82,10 @@ export class GetSelectedCard {
 export class GetDecision {
   static readonly type = '[Selected] GetDecision';
   constructor(public payload: string) { }
+}
+export class GetLoader {
+  static readonly type = '[Loader] GetLoader';
+  constructor(public payload: 'true') { }
 }
 
 

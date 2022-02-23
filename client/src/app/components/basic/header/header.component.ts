@@ -19,9 +19,15 @@ export class HeaderComponent implements OnInit {
 
   ) { }
   ngOnInit(): void {
+    let navbar:any = document.getElementById('navbar');
     this.authService.addHeader(this);
     let authSub = this.store.select(state => state.user)
     .subscribe(user => {
+      if(user.loader){
+        setTimeout(() => {
+          navbar.style.display = 'block';
+        }, 2000);
+      }
       if(user.user.loggedIn){
         this.user = user.user;
       }

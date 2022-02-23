@@ -1,102 +1,87 @@
-const
-    router = require('express').Router(),
-    userLogic = require('../bll/user-logic');
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
+const router = require('express').Router();
+const userLogic = require('../bll/user-logic');
 
 
 
+// // Logging In
+// router.post('/login', async (req, res, next) => {
+//     if (req.body.password && req.body.email) {
+//         await userLogic.findAuth(req.body)
+//             .then(function (result) {
+//                 if (result) {
+//                     res.send(result);
+//                 } else {
+//                     res.send(false);;
+//                 }
+//             })
+//     }
+// });
 
-// Registering
-router.post('/register', (req, res, next) => {
-    userLogic.findUserByEmail(req.body.email)
-        .then(
-            function (result) {
-                if (result) {
-                    res.send('Email already exists.');
-                    return;
 
-                } else {
-                    let random1 = Math.floor(Math.random() * 10).toString();
-                    let random2 = Math.floor(Math.random() * 10).toString();
-                    let random3 = Math.floor(Math.random() * 10).toString();
-                    let random4 = Math.floor(Math.random() * 10).toString();
-                    let random5 = Math.floor(Math.random() * 10).toString();
-                    let random6 = Math.floor(Math.random() * 10).toString();
-                    let random7 = Math.floor(Math.random() * 10).toString();
-                    let random8 = Math.floor(Math.random() * 10).toString();
-                    let random9 = Math.floor(Math.random() * 10).toString();
-                    let dizzyNum = '13';
-                    let accountNumber =
-                        dizzyNum + random1 + random2 + random3 + random4 + random5 + random6 + random7 + random8 + random9;
-                    let logic = true;
-                    if (logic) {
-                        userLogic.findUserByAccountNumber(accountNumber)
-                            .then(result => {
-                                if (result) {
-                                    let random1 = Math.floor(Math.random() * 10).toString();
-                                    let random2 = Math.floor(Math.random() * 10).toString();
-                                    let random3 = Math.floor(Math.random() * 10).toString();
-                                    let random4 = Math.floor(Math.random() * 10).toString();
-                                    let random5 = Math.floor(Math.random() * 10).toString();
-                                    let random6 = Math.floor(Math.random() * 10).toString();
-                                    let random7 = Math.floor(Math.random() * 10).toString();
-                                    let random8 = Math.floor(Math.random() * 10).toString();
-                                    let random9 = Math.floor(Math.random() * 10).toString();
-                                    let dizzyNum = '13';
-                                    let newAccountNumber =
-                                        dizzyNum + random1 + random2 + random3 + random4 + random5 + random6 + random7 + random8 + random9;
-                                    userLogic.findUserByAccountNumber(newAccountNumber);
-                                    console.log(newAccountNumber);
-                                } else {
-                                    logic = false;
-                                    userLogic.createUser(req.body , accountNumber)
-                                        .then((id) => {
-                                            res.send(id);
-                                        })
-                                }
-                            })
-                    }
+router.get('/login', authenticateToken, (req, res, next) => {
 
-                }
-            })
-
+    console.log(req.body);
 })
 
 // Logging In
-router.post('/login', async (req, res, next) => {
-    if (req.body.password && req.body.email) {
-        await userLogic.findAuth(req.body)
-            .then(function (result) {
-                if (result) {
-                    res.send(result);
-                } else {
-                    res.send(false);;
-                }
-            })
-    }
+router.post('/authUser', async (req, res, next) => {
+    const accessToken = jwt.sign(req.body, process.env.ACCESS_TOKEN_SECRET);
+    res.json(accessToken);
 });
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return res.sendStatus(401);
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) {
+            return res.sendStatus(500);
+        }
+        if (user.password && user.email) {
+            userLogic.findAuth(user)
+                .then(function (result) {
+                    if (result) {
+                        delete result.password;
+                        console.log(result);
+                        res.send(result);
+                    } else {
+                        res.send(false);;
+                    }
+                })
+        }
+        next()
+    })
+}
 
 // Logging Out
-router.post('/logout', async (req, res, next) => {
-    await userLogic.isLoggedIn(req.body.email)
-        .then(function (result) {
-            if (result) {
-                userLogic.authUser(req.body.email, false);
-            } else {
-                res.send("User Not Found");
-            }
-        })
-});
+router.get('/logout', logoutUserViaToken,  (req, res, next) => {
 
-router.get('/number/:number', async (req, res, next) => {
-    await userLogic.findUserByAccountNumber(req.params.number)
-        .then(function (result) {
-            if (result) {
-                res.send(result)
-            } else {
-                res.send(false);
-            }
-        })
 });
+function logoutUserViaToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return res.sendStatus(401);
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        console.log(token);
+        console.log(process.env.ACCESS_TOKEN_SECRET);
+        if (err) {
+            return res.sendStatus(500);
+        }
+        if (user.password && user.email) {
+            userLogic.isLoggedIn(user.email)
+            .then(function (result) {
+                if (result) {
+                    userLogic.authUser(user.email, false);
+                } else {
+                    res.send("User Not Found");
+                }
+            })
+        }
+        next()
+    })
+}
 
 
 module.exports = router;

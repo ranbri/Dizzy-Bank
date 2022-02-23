@@ -47,31 +47,30 @@ export class LandingComponent implements OnInit {
             if (cards) {
               cardSub.unsubscribe();
               this.loading.style.display = 'none';
-            }
-            this.store.dispatch(new GetCards(cards))
-            if (cards.length <= 3) {
-              limiterStyle.style.display = "block";
-              this.loading.style.display = 'none';
-              limiter.innerHTML = `
+
+              this.store.dispatch(new GetCards(cards))
+              if (cards.length <= 3) {
+                limiterStyle.style.display = "block";
+                this.loading.style.display = 'none';
+                limiter.innerHTML = `
                   <a class="link-secondary" data-bs-toggle="modal" data-bs-target="#addCardModal">
                   Register a new Card?</a>`;
-              if (cards.length == 0) {
-                limiter.innerHTML = `
+                if (cards.length == 0) {
+                  limiter.innerHTML = `
                       <p>You have no available cards. </p>
                       <a class="link-secondary" data-bs-toggle="modal" data-bs-target="#addCardModal">
                       Register a new Card?</a>
                       `
+                }
+              } if (cards.length >= 3) {
+                limiterStyle.style.display = "none";
               }
-            } if (cards.length >= 3) {
-              limiterStyle.style.display = "none";
-            }
 
 
-            this.cardLimit = cards.length;
-            this.cards = cards;
-            authSub.unsubscribe();
-          }, err => {
-            if (err.error.text == "No Cards Found") {
+              this.cardLimit = cards.length;
+              this.cards = cards;
+              authSub.unsubscribe();
+            } else {
               limiterStyle.style.display = "block";
               limiter.innerHTML = `<br>
               <p>You have no available cards. </p>
@@ -112,7 +111,10 @@ export class LandingComponent implements OnInit {
             });
           }
         } else {
-          notification.style.display = "none";
+          if (notification) {
+            notification.style.display = "none";
+
+          }
         }
       })
   }

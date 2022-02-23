@@ -35,7 +35,6 @@ export class LoanService {
 
   }
   public getLoansByID(userID: string) {
-    console.log(userID);
     return this.http
       .get(`http://localhost:3000/api/loans/find/${userID}`, {
         observe: 'body',
@@ -56,7 +55,6 @@ export class LoanService {
       deduction,
       loan
     }
-    console.log(updater);
     return this.http
       .post<Loan>('http://localhost:3000/api/loans/pay', updater, {
         observe: 'body',

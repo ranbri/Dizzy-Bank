@@ -45,7 +45,6 @@ export class CardService {
       _id: _id,
       status: status
     }
-    console.log(body);
     return this.http
       .post<any>('http://localhost:3000/api/cards/cancel', body, {
         observe: 'body',
