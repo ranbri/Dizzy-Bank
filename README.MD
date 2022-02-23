@@ -74,7 +74,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/home-page.png)
+![Product Name Screen Shot][product-screenshot](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/home-page.png)
 
 We at Dizzy Bank inc. do out best to make banking available to everyone!
 
