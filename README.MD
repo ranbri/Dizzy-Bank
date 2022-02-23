@@ -37,7 +37,7 @@
     ·
     <a href="https://github.com/ranbri/Dizzy-Bank/issues">Report Bug</a>
     ·
-    <a href="https://github.com/ranbri/Dizzy-Bank/issues">Request Feature</a>
+    <a href="https://github.com/ranbri/Dizzy-Bank/pulls">Request Feature</a>
   </p>
 </div>
 
