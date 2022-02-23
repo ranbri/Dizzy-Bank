@@ -23,3 +23,34 @@
 
 #### Home Page:
 ![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/home-page.png)
+
+#### Login Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/login-page.png)
+
+#### Account Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/my-account-page.png)
+
+#### Balance and Payments Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/messages-page.png)
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/money-move-page-2.png)
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/money-move-page-payments.png)
+
+#### Wire Money Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/wire-page-1.png)
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/wire-page-2.png)
+
+#### Stocks Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/stocks-page-1.png)
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/stocks-page-2.png)
+### Stocks Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/buy-stock-1.png)
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/buy-stock-2.png)
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/buy-stock-3.png)
+
+#### Credit Card Info Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/credit-info-1.png)
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/credit-info-2.png)
+
+#### Messages Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/messages-page.png)
+
