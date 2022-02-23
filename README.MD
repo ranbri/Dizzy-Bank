@@ -83,8 +83,6 @@ Our Goals:
 
 With that in mind we made this bank on the ideas given from our founder & CEO Ran Bar Ilan to help others and bring people together.
 
-Use the `OVERVIEW.md` to get started.
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
