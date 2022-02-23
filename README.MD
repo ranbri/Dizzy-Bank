@@ -94,7 +94,7 @@ Use the `OVERVIEW.md` to get started.
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [Angular 13](https://angular.io/)
-* [Bootstrap](https://getbootstrap.com)
+* [Bootstrap 5.1](https://getbootstrap.com)
 * [Node.js](https://nodejs.dev/)
 * [Json Web Token](https://jwt.io/introduction)
 * [MongoDB](https://www.mongodb.com/)
