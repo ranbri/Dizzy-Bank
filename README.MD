@@ -177,7 +177,7 @@ This is an example of how to list things you need to use the software and how to
    
    
 #### where is MongoDB?
-###### it's running already thanks to MongoDB free cluster that is connected in the logics files!
+###### it's running already thanks to MongoDB free cluster that is connected in server/bll/ logics files!
 
 <!-- CONTRIBUTING -->
 ## Contributing
