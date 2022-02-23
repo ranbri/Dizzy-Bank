@@ -116,13 +116,10 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
-  npm install npm@latest -g
+  npm install 
   ```
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 
 1. Clone the repo
    ```sh
@@ -147,7 +144,34 @@ _Below is an example of how you can instruct your audience on installing and set
    
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### Getting Started
 
+1. Open terminal
+2. Go to "client" folder
+   ```sh
+   cd client
+   ```
+3. Start Angular app
+  ```sh
+  ng serve
+  ```
+4. open localhost in ur browser
+   ```sh
+   http://localhost:4200/
+   ```
+5. Open a new terminal
+6. Go to "server" folder
+  ```sh
+  cd server
+  ```
+6. Start node server.
+   ```sh
+   node app.js
+   ```
+   
+   
+#### where is MongoDB?
+###### it's running already thanks to MongoDB free cluster that is connected in the logics files!
 
 <!-- ROADMAP -->
 ## Roadmap
