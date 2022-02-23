@@ -20,3 +20,6 @@
 ##### email: admin
 ##### password: admin
 
+
+#### Home Page:
+![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/home-page.png)
