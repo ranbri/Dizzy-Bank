@@ -31,10 +31,8 @@ hr{
 
 
 #rangeValue {
-    position: relative;
-    display: block;
     text-align: center;
-    font-size: 6em;
+    font-size: 20vw;
     
     font-weight: 400;
   }
@@ -58,11 +56,9 @@ hr{
     border: 4px solid $stacks-8;
     box-shadow: -407px 0 0 400px $stacks-8;
   }
-
   .payment{
       border: 1px solid $theme-8;
       border-radius: 20px;
-      padding: 20px;
       background: #fafafa;
       color: $theme-10;
       margin-top: 5px;

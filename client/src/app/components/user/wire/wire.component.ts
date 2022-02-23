@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -32,6 +33,8 @@ export class WireComponent implements OnInit {
     private userService: UserService,
     private wireService: WireService,
     private store: Store,
+    private router:Router,
+
 
   ) { }
 
@@ -95,7 +98,10 @@ export class WireComponent implements OnInit {
         if (logic) {
           wireBtn.style.display = 'block';
           loadingWireBtn.style.display = 'none';
+          alert('Successfully transfered funds.')
+          this.router.navigate(['/myAccount']);
         } else {
+          alert('error transfering money');
           wireBtn.style.display = 'block';
           loadingWireBtn.style.display = 'none';
         }

@@ -9,38 +9,58 @@
       <li class="breadcrumb-item active" aria-current="page">Login</li>
     </ol>
   </nav>
-  <div class="container">
+  <div class="container ">
+    <div class="row  text-secondary text-center">
+      <div class="col-12">
+        <h1>Login:</h1>
+      </div>
+    </div>
+    <br>
     <div class="row ">
-      <div class="col-md-4">
-        <label class="form-label">Email</label>
+      <div class="col-2"></div>
+      <div class="col-md-2">
+        <label class="form-label">Email:</label>
+      </div>
+      <div class="col-12 col-md-6">
         <div class="input-group ">
           <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-at"></i></span>
           <input type="email" class="form-control" [(ngModel)]="user.email" required>
         </div>
       </div>
     </div>
-
+    <br>
     <div class="row">
-      <div class="col-md-4">
-        <label for="validationCustom01" class="form-label">Password</label>
+      <div class="col-2"></div>
+      <div class="col-md-2">
+        <label for="validationCustom01" class="form-label">Password:</label>
+      </div>
+      <div class="col-12 col-md-6">
         <div class="input-group">
           <span class="input-group-text"><i class="fas fa-asterisk"></i></span>
           <input type="password" class="form-control" id="validationCustom01" [(ngModel)]="user.password" required>
         </div>
       </div>
     </div>
-
     <div class="row">
-      <div class="col-8">
+      <div class="col-12 col-md-8">
         <p #errorMessage> </p>
       </div>
     </div>
-
+    <br>
     <div class="row">
-      <div class="col-8">
+      <div class="col-4">
+
+      </div>
+      <div class="col-12 col-md-8">
+        <span>Still don't have an account with us?</span> &nbsp; <br> <a routerLink="/register" class="h4">sign up !</a>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-12 col-md-8">
         <button class="btn btn-outline-secondary " (click)="login()" type="submit">Login</button>
         &nbsp;
-        <span>Still don't have an account with us?</span> &nbsp; <a routerLink="/register" class="">sign up !</a>
       </div>
     </div>
   </div>

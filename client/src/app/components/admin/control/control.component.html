@@ -8,26 +8,28 @@
     </nav>
     <div class="container">
         <div class="row text-center">
-            <div class="col-12 col-md-4 col-xl-4">
-                <a class="btn btn-outline-light" style="width:200px;height:200px;border-radius: 50%;" type="button"
+            <div class=" col-4">
+                <a class="btn btn-outline-light circle"  type="button"
                     routerLink="/admin/users">
                     <p style="position:relative; top:40%; font-size: 25px;"> User Info</p>
                 </a>
             </div>
-            <div class="col-12 col-md-4 col-xl-4">
-                <a class="btn btn-outline-light" style="width:200px;height:200px;border-radius: 50%;" type="button"
+            <div class=" col-4">
+                <a class="btn btn-outline-light circle"  type="button"
                     routerLink="/admin/contact">
                     <p style="position:relative; top:40%; font-size: 25px;"><label class="notificationCircle"
                             id="notification" style="display: none;"></label> Messages</p>
                 </a>
             </div>
-            <div class="col-12 col-md-4 col-xl-4">
-                <a class="btn btn-outline-light" style="width:200px;height:200px;border-radius: 50%;" type="button"
+            <div class=" col-4">
+                <a class="btn btn-outline-light circle "  type="button"
                     routerLink="/admin/handbook">
-                    <p style="position:relative; top:31%; font-size: 25px;"> Admin's Handbook</p>
+                    <p class="third" style="position:relative; top:31%; font-size: 25px;"> Admin's Handbook</p>
                 </a>
             </div>
         </div>
+    </div>
+    <div class="container">
         <br>
         <br>
         <div class="row">
@@ -38,64 +40,66 @@
         <br>
         <br>
         <div class="row">
-            <div id="dizzyAdminCarousel" class="carousel carousel-light slide " data-bs-ride="carousel">
-                <div class="carousel-indicators ">
-                    <button type="button" data-bs-target="#dizzyAdminCarousel" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#dizzyAdminCarousel" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#dizzyAdminCarousel" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+            <div class="col-12">
+                <div id="dizzyAdminCarousel" class="carousel carousel-light slide " data-bs-ride="carousel">
+                    <div class="carousel-indicators ">
+                        <button type="button" data-bs-target="#dizzyAdminCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#dizzyAdminCarousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#dizzyAdminCarousel" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#dizzyAdminCarousel" data-bs-slide-to="3"
-                        aria-label="Slide 4"></button>
+                            aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner text-center" style="border-radius: 12px;">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img src="http://localhost:3000/assets/photos/work-quete-1.webp"
+                                class="rounded mx-auto d-block" alt="work-quete">
+                            <div class="carousel-caption d-none d-md-block text-light">
+                                <h5>Pleasure In The Job</h5>
+                                <p>Put Perfection In The Work.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item " data-bs-interval="2000">
+                            <img src="http://localhost:3000/assets/photos/work-quete-2.webp"
+                                class="rounded mx-auto d-block" alt="work-quete">
+
+                            <div class="carousel-caption d-none d-md-block text-light">
+                                <h5>Hard Work Beats Talent</h5>
+                                <p> When Talent Fail To Do Hard Work.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="http://localhost:3000/assets/photos/work-quete-3.webp"
+                                class="rounded mx-auto d-block" alt="work-quete">
+
+                            <div class="carousel-caption d-none d-md-block text-light">
+                                <h5>If You Don't See Yourself As A Winner</h5>
+                                <p>Then You Cannot Perform As a Winner.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="http://localhost:3000/assets/photos/work-quete-4.webp"
+                                class="rounded mx-auto d-block" alt="work-quete">
+
+                            <div class="carousel-caption d-none d-md-block text-light">
+                                <h5>If You Don't See Yourself As A Winner</h5>
+                                <p>Then You Cannot Perform As a Winner.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#dizzyAdminCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#dizzyAdminCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="carousel-inner text-center" style="border-radius: 12px;">
-                    <div class="carousel-item active" data-bs-interval="10000">
-                        <img src="http://localhost:3000/assets/photos/work-quete-1.webp"
-                            class="rounded mx-auto d-block" alt="work-quete">
-                        <div class="carousel-caption d-none d-md-block text-light">
-                            <h5>Pleasure In The Job</h5>
-                            <p>Put Perfection In The Work.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item " data-bs-interval="2000">
-                        <img src="http://localhost:3000/assets/photos/work-quete-2.webp"
-                            class="rounded mx-auto d-block" alt="work-quete">
-
-                        <div class="carousel-caption d-none d-md-block text-light">
-                            <h5>Hard Work Beats Talent</h5>
-                            <p> When Talent Fail To Do Hard Work.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="http://localhost:3000/assets/photos/work-quete-3.webp"
-                            class="rounded mx-auto d-block" alt="work-quete">
-
-                        <div class="carousel-caption d-none d-md-block text-light">
-                            <h5>If You Don't See Yourself As A Winner</h5>
-                            <p>Then You Cannot Perform As a Winner.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="http://localhost:3000/assets/photos/work-quete-4.webp"
-                            class="rounded mx-auto d-block" alt="work-quete">
-
-                        <div class="carousel-caption d-none d-md-block text-light">
-                            <h5>If You Don't See Yourself As A Winner</h5>
-                            <p>Then You Cannot Perform As a Winner.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#dizzyAdminCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#dizzyAdminCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
         <br>

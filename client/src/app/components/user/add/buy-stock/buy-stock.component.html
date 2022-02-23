@@ -63,31 +63,35 @@
                 <label>Symbol:</label>&nbsp;
             </div>
             <div class="col-6 col-md-2">
-                <label>{{stockModel.symbol}}</label>
+                <label class="text-dark">{{stockModel.symbol}}</label>
             </div>
+            <br>
             <div class="col-6 col-md-2">
                 <label>Bid:</label>&nbsp;
             </div>
             <div class="col-6 col-md-2">
-                <label>{{stockModel.bid}}</label>
+                <label class="text-info">{{stockModel.bid| number }}$ </label>
             </div>
+            <br>
             <div class="col-6 col-md-2">
                 <label>Ask:</label>&nbsp;
             </div>
             <div class="col-6 col-md-2">
-                <label>{{stockModel.ask}}</label>
+                <label class="text-info">{{stockModel.ask | number}}$</label>
             </div>
+            <br>
             <div class="col-6 col-md-2">
                 <label>Day High:</label>&nbsp;
             </div>
             <div class="col-6 col-md-2">
-                <label>{{stockModel.high}}</label>
+                <label class="text-info">{{stockModel.high| number}}$</label>
             </div>
             <div class="col-6 col-md-2">
                 <label>Day Low:</label>&nbsp;
             </div>
+            <br>
             <div class="col-6 col-md-2">
-                <label>{{stockModel.low}}</label>
+                <label class="text-info">{{stockModel.low| number}}$</label>
             </div>
         </div>
         <div class="row text-center text-secondary">
@@ -123,34 +127,37 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6">
-                <label class="h4">Stock:</label>
-                <label class="h4">{{stockModel.name}}&dollar;</label>
+            <div class="col-2"></div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <label class="h4">Stock:</label>&nbsp;
+                        <label class="h4 ">{{stockModel.name}}</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="h4">Total:</label>&nbsp;
+                        <label class="h4 text-info">{{stockModel.total}}&dollar;</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="h4">Ask:</label>&nbsp;
+                        <label class="h4 text-info">{{stockModel.ask}}&dollar; x {{stockModel.size}}</label>
+                    </div>
+                </div>
             </div>
-            <div class="col-6 col-md-3">
-                <label class="h4">Total:</label>
-                <label class="h4">{{stockModel.total}}&dollar;</label>
-
-            </div>
-            <div class="col-6 col-md-3">
-                <label class="h4">Quantity:</label>
-                <label class="h4">{{stockModel.size}}</label>
-            </div>
-       
-            <div class="col-6 col-md-3">
-                <label class="h4">Ask:</label>
-                <label class="h4">{{stockModel.ask}}&dollar;</label>
-            </div>
+        </div>
+        <br>
+        <div class="row">
             <div class="col-12 col-md-3">
-                <label class="h4">Pay Method:</label>
+                <label class="h4 text-danger">Pay Method:</label>
             </div>
             <div class="col-12 col-md-6">
-                <select #cardSelect class="form-select" aria-label="Choose credit card..." >
+                <select #cardSelect class="form-select" aria-label="Choose credit card...">
                     <option selected disabled>Choose Pay Method...</option>
-                    <option  value=''>Account Balance</option>
-                    
-                    <option value="{{card._id}}" *ngFor='let card of cards'>{{card.cardNumber}} - {{card.provider}}</option>
-                  </select>
+                    <option value=''>Account Balance</option>
+
+                    <option value="{{card._id}}" *ngFor='let card of cards'>{{card.cardNumber}} - {{card.provider}}
+                    </option>
+                </select>
             </div>
         </div>
 
@@ -168,12 +175,12 @@
                     back</button>&nbsp;
 
 
-                <button (click)='pay(this.cardSelect)' class="btn btn-success" 
-                [disabled]='this.loadingPayBtn.style.display == "block"'>
+                <button (click)='pay(this.cardSelect)' class="btn btn-success"
+                    [disabled]='this.loadingPayBtn.style.display == "block"'>
                     <label id="payBtn">
                         Pay
                     </label>
-                    <label id="loadingPayBtn"  #loadingPayBtn style="display: none;">
+                    <label id="loadingPayBtn" #loadingPayBtn style="display: none;">
                         Loading...
                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     </label>

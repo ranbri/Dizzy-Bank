@@ -21,9 +21,9 @@ p {
     color: green !important;
 }
 .money-move {
+    width: 100% !important;
     .container {
         font-family: $mukta;
-        padding: 20px;
         border: 1px solid $theme-10;
         border-radius: 5px;
         background: $theme-gray;
@@ -87,8 +87,7 @@ p {
     border-radius: 6px;
     font-size: 40px;
     letter-spacing: 0.5px;
-    padding: 20px;
- 
+
   
 
     p{

@@ -4,14 +4,13 @@
     height: 100% !important;
 }
 
-
 .breadcrumb-item {
     color: #fafafa !important;
     label {
         opacity: 0.6;
     }
 }
-.notificationCircle{
+.notificationCircle {
     position: absolute;
     left: 8px;
     top: 8px;
@@ -23,10 +22,38 @@
     border: 1px solid #fafafa;
     border-radius: 50%;
 }
-img{
-height: 400px !important;
-width: 400px !important;
+#dizzyAdminCarousel {
+    width: 100% !important;
 }
-.btn{
+img {
+    height: 400px !important;
+    width: 400px !important;
+}
+.btn {
     margin: 5px;
+}
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+@media only screen and (max-width: 400px) {
+    img {
+        height: 350px !important;
+        width: 350px !important;
+    }
+    .circle{
+        width: 80px;
+        height: 80px;
+        p{
+            font-size: 12px !important;
+        }
+    }
+    .third{
+        margin-top: -4px;
+    }
+    .notificationCircle{
+        margin-top: -32px;
+        margin-left: 9px;
+    }
 }
