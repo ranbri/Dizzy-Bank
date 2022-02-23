@@ -147,7 +147,10 @@ This is an example of how to list things you need to use the software and how to
 ### Getting Started
 
 1. Open terminal
-2. Go to "client" folder
+   ```sh
+   new terminal
+   ```
+3. Go to "client" folder
    ```sh
    cd client
    ```
@@ -160,11 +163,14 @@ This is an example of how to list things you need to use the software and how to
    http://localhost:4200/
    ```
 5. Open a new terminal
+  ```sh
+   new terminal
+   ```
 6. Go to "server" folder
   ```sh
   cd server
   ```
-6. Start node server.
+7. Start node server.
    ```sh
    node app.js
    ```
