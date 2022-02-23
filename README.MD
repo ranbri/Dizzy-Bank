@@ -42,7 +42,7 @@
 #### Stocks Page:
 ![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/stocks-page-1.png)
 ![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/stocks-page-2.png)
-### Stocks Page:
+### Buy Stocks Page:
 ![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/buy-stock-1.png)
 ![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/buy-stock-2.png)
 ![This is an image](https://github.com/ranbri/Dizzy-Bank/blob/main/photos/User-account/buy-stock-3.png)
