@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/ranbri/Dizzy-Bank">
     <img src="https://github.com/ranbri/Dizzy-Bank/blob/main/client/src/favicon.ico" alt="Logo" width="80" height="80">
   </a>
 
