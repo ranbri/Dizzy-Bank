@@ -213,7 +213,6 @@ Use this space to list resources you find helpful and would like to give credit 
 * [Coolors.co color generator](https://coolors.co/)
 * [Netlify spinner library](https://netlify.app/)
 * [Charts.JS](https://www.chartjs.org/)
-* [Img Shields](https://shields.io)
 * [Font Awesome](https://fontawesome.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
