@@ -54,7 +54,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Product-Screenshot](https://github.com/ranbri/Dizzy-Bank/tree/main/photos)
+[Product-Screenshots](https://github.com/ranbri/Dizzy-Bank/tree/main/photos)
 
 We at Dizzy Bank inc. do out best to make banking available to everyone!
 
