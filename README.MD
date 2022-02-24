@@ -46,6 +46,7 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#license">License</a></li>
   </ol>
 </details>
 
@@ -203,7 +204,7 @@ Use this space to list resources you find helpful and would like to give credit 
 
 MIT License
 
-Copyright (c) [222] [Ran Bar Ilan] for Dizzy Bank.
+Copyright (c) [2022] [Ran Bar Ilan] for Dizzy Bank.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
