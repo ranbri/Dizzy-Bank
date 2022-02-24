@@ -110,10 +110,13 @@ This is an example of how to list things you need to use the software and how to
    npm install
    ```
 4. Enter "server" folder
+5.   ```sh
+  cd ..
+  ```
   ```sh
   cd server
   ```
-5. Install NPM packages
+6. Install NPM packages
    ```sh
    npm install
    ```
