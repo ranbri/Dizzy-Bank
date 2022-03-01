@@ -16,7 +16,7 @@ export class User {
         public loggedIn?: boolean,
         public isAdmin?: boolean,
         public balance?: number,
-        public dateOfBirth?:string,
+        public dateOfBirth?:any,
         public accountNumber?:string
     ) {
     }

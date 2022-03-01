@@ -28,7 +28,11 @@ export class StocksInfoComponent implements OnInit {
     fifthLabel: "",
     sixthLabel: "",
   }
-
+  minYear: any = new Date().toLocaleDateString().slice(4, 10);
+  minMonth: any = parseInt(new Date().toLocaleDateString().slice(2, 3).replace('/', '0')) > 9 ? new Date().toLocaleDateString().slice(2, 3).replace('/', '0') : "0" + new Date().toLocaleDateString().slice(2, 3).replace('/', '0');
+  minDay: any = parseInt( new Date().toLocaleDateString().slice(0, 1).replace('/', '')) > 9 ? new Date().toLocaleDateString().slice(0, 2).replace('/', '') : "0" + new Date().toLocaleDateString().slice(0, 2).replace('/', '');
+  minDate: any = `${this.minYear}-${this.minMonth}-${this.minDay}`;
+  // minDate: any = new Date().toLocaleDateString();
   public dateSelector: any = {
     date: "",
     symbol: "",
@@ -42,6 +46,13 @@ export class StocksInfoComponent implements OnInit {
 
   public stocks: any
   public stockDetails: FullStock | any;
+
+  myFilter = (d: Date | null): boolean => {
+
+    const day = (d || new Date()).getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
+  };
 
   public dateClicker() {
     let loading: any = document.getElementById('loading');
@@ -141,14 +152,19 @@ export class StocksInfoComponent implements OnInit {
 
         }
         loading.style.display = 'none';
-      
-        if (this.stockInfoService.errorMessage) {
-        this.stockInfoService.formatErrors(this);
-      }
-    }, 400);
-  }
-}
-ngOnInit(): void {
 
-}
+        if (this.stockInfoService.errorMessage) {
+          this.stockInfoService.formatErrors(this);
+        }
+      }, 400);
+    }
+  }
+  ngOnInit(): void {
+    console.log(this.minDate);
+    
+    let dateChoosen:any = document.getElementById('dateChoosen')
+    dateChoosen.max = this.minDate;
+    console.log(dateChoosen.min);
+
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from '../../../services/auth.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Store } from '@ngxs/store';
 import { Login } from 'src/app/redux/user-store/actions';
@@ -28,11 +28,13 @@ export class RegisterComponent implements OnInit {
   user!: User;
   currentDate: Date = new Date();
   dob: any;
+  itsTrue:boolean = true;
   validations = {
     phoneValidation: true,
 
   }
   phoneValue!: any;
+
   public updateLength(number: any) {
     this.phoneValue = number;
   }
@@ -107,9 +109,16 @@ export class RegisterComponent implements OnInit {
 
 
   }
+  myFilter = (d:any): boolean => {
+    const year = (d || new Date()).getFullYear();
+    const minAge = 2022-18;
 
+    // Prevent Saturyear and Sunyear from being selected.
+    return year <= minAge ;
+  };
 
   ngOnInit() {
+    
     if (localStorage.getItem('loggedIn')) this.router.navigate(['/home']);
     this.registration = new FormGroup({
       firstName: new FormControl(),
@@ -125,7 +134,7 @@ export class RegisterComponent implements OnInit {
       floor: new FormControl(),
       apartment: new FormControl(),
       terms: new FormControl(),
-      dateOfBirth: new FormControl(),
+      dateOfBirth: new FormControl({value: 'Nancy', disabled: true}, Validators.required),
 
     });
 

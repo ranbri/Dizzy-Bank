@@ -133,7 +133,7 @@
                     <span *ngIf="!phoneValue  ">*</span>
                     <div *ngIf="phoneValue">
                         <span *ngIf="phoneValue.length < 10 ">phone number too short.</span>
-                        <span >*</span>
+                        <span>*</span>
                     </div>
                 </div>
             </div>
@@ -143,10 +143,15 @@
                 </div>
                 <div class="col-12 col-md-4">
                     <mat-form-field appearance="fill" style="width: 100%;">
-                        <mat-label>Pick A Date</mat-label>
-                        <input matInput [matDatepicker]="picker2" formControlName="dateOfBirth" style="color: #fafafa;">
+                        <mat-label>Pick A Date
+                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-chevron-right"></i>
+                        </mat-label>
+                        <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker2"
+                            formControlName="dateOfBirth"  style="color: #fafafa;">
                         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                        <mat-datepicker #picker2></mat-datepicker>
+                        <mat-datepicker #picker2 disabled="false"></mat-datepicker>
                     </mat-form-field>
                 </div>
             </div>
