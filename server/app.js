@@ -34,7 +34,7 @@ server.use('/api/wire', cors(corsOptions), wireController);
 
 loanDeductionLogic.deductLoan();//All users loans deduciton on the 1st of the month.
 cardDeductionLogic.deductCards();//All users cards deduciton on the 1st of the month.
-const PORT = 3000 || process.env.PORT;
+const PORT = 3000;
 //Server Setup
 server.use(require('express').static(__dirname));
 server.listen(PORT, 4200, () => console.log(`Connected to port 3000`));
