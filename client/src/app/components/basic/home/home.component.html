@@ -3,7 +3,8 @@
         <br>
         <div class="row justify-content-center">
             <div class="col-xl-6 col-sm-4 left-col">
-                <h1>The First Cool Bank</h1>
+                <img src="http://localhost:3000/assets/photos/first-cool.svg" class="img-fluid" alt="...">
+                <!-- <h1>The First Cool Bank</h1> -->
             </div>
             <div class="col-xl-6 col-sm-4 right-col">
                 <div class="cardShow">
@@ -37,33 +38,22 @@
     </svg>
 
     <div class="lower">
+        <div class="container">
+            <div class="row ">
+                <!-- <h1 id="headline">Interest? &nbsp; Don't Get Dizzy We Have None! </h1> -->
+                <img src="http://localhost:3000/assets/photos/interest.svg" class="img-fluid" alt="..." width="100%">
 
-        <div class="row ">
-            <h1 id="headline">Interest? &nbsp; Don't Get Dizzy We Have None! </h1>
-
-            <h2>
-                New members get interest free card for up to 4 days!
-            </h2>
-            <div class="dollar ">
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
-                <i class="fas fa-dollar-sign"></i>
+                <h2>
+                    New members get interest free card for up to 4 days!
+                </h2>
+                <img src="http://localhost:3000/assets/photos/no-interest.svg" class="img-fluid" alt="...">
+                <h3>*additional fees may apply, a double interest may happen if u fail to pay the bank fees</h3>
             </div>
+        </div>
+        <div class="palm">
+            <img src="http://localhost:3000/assets/photos/palm.svg" class="img-fluid" alt="..." style="width: 100%;">
+        </div>
 
-            <h3>*additional fees may apply, a double interest may happen if u fail to pay the bank fees</h3>
-        </div>
-        <div class="palm row ">
-            <h1>Everyhing you need <br> in the palm of your hand.</h1>
-            <img src="http://localhost:3000/assets/photos/palm.png" class="img-fluid img-palm" alt="...">
-        </div>
-    
         <div class="row display ">
             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                 <!--                                    Stocks                                        -->
@@ -93,24 +83,32 @@
 
 
 
-
-            <div class="tab-content row  " id="myTabContent ">
+            <div class="tab-content container " id="myTabContent ">
                 <!--                                    Stocks                                        -->
-                <div class="tab-pane fade show update active" id="stocks" role="tabpanel" aria-labelledby="stocks-tab">
+                <div class="tab-pane fade show update active  container" id="stocks" role="tabpanel"
+                    aria-labelledby="stocks-tab">
+                    <br>
+                    <br>
+                    <br>
                     <br>
                     <div class="col-12">
                         <p class="">Stocks analysis and much more.</p>
                     </div>
                     <br>
-                    <div class="col-12 justify-content-center chart-div">
+                    <br>
+                    <div class=" justify-content-center chart-div row">
                         <canvas id="myChart"></canvas>
                     </div>
 
                 </div>
                 <!--                                    Loan                                           -->
-                <div class="tab-pane fade " id="loan" role="tabpanel" aria-labelledby="loan-tab">
+                <div class="tab-pane fade container " id="loan" role="tabpanel" aria-labelledby="loan-tab">
+                    <br>
+                    <br>
                     <div class="row">
-                        <div class="col-12">
+                        <br>
+                        <div class="col-12 text-center">
+                            <br>
                             <p>Get a Loan On Your Own Terms.</p>
                         </div>
 
@@ -142,13 +140,15 @@
                     </div>
                 </div>
                 <!--                                    Wire                                           -->
-                <div class="tab-pane fade " id="wire" role="tabpanel" aria-labelledby="wire-tab">
+                <div class="tab-pane fade container" id="wire" role="tabpanel" aria-labelledby="wire-tab">
 
                     <div class="row">
-                        <div class="card-title col-12">
+                        <div class="card-title col-12 text-center">
+                            <br>
+                            <br>
                             <p class=" ">Transfer Money Frustration Free</p>
                         </div>
-                        <div class="col-12 arrow-box">
+                        <div class="col-12 arrow-box text-center">
                             <i class="fas fa-exchange-alt"></i>
                         </div>
                         <div class="wire-value-row row " #sliderValue>
@@ -157,45 +157,51 @@
                             <p class="col-4 ">Jeff</p>
                         </div>
 
-                        <div class="row slider-box">
-                            <mat-slider #slider thumbLabel [displayWith]="formatLabel" tickInterval="auto" step="1000"
-                                min="0000" max="25000" aria-label="units"></mat-slider>
+                        <div class="row slider-box ">
+                            <div class="col-12">
+                                <mat-slider #slider thumbLabel [displayWith]="formatLabel" tickInterval="auto"
+                                    step="1000" min="0000" max="25000" aria-label="units"></mat-slider>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!--                                    saving                                     -->
-                <div class="tab-pane fade" id="saving" role="tabpanel" aria-labelledby="saving-tab">
-                    <div class="row justify-content-center ">
-
-                        <div class="row justify-content-center">
-
-                            <p class="headline-p col-12">Saving Made Easy </p>
-                            <div class="row col-12 saving-labels">
-                                <div class="col-4">
-                                    <label class="">Preset Interest</label>
-                                </div>
-                                <div class="col-4 ">
-                                    <label class="no-border">No Risk Funds</label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="">Comfortable Exits</label>
-                                </div>
+                <div class="tab-pane fade  " id="saving" role="tabpanel" aria-labelledby="saving-tab">
+                    <div class="container justify-content-center ">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="row justify-content-center text-center">
+                            <p class="headline-p">Saving Made Easy </p>
+                            <div class=" saving-labels">
+                                <label class="">Preset Interest</label>
+                                <label class="no-border">No Risk Funds</label>
+                                <label class="">Comfortable Exits</label>
+                                <br>
+                                <br>
                             </div>
-                        </div>
-
-                        <div class="col-9 rainbow">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                version="1.1" id="Capa_1" x="0px" y="0px" width="400px" height="400px"
-                                viewBox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
-                                <g>
-                                    <path
-                                        d="M539.002,190.186c-4.686-3.128-11.017-1.856-14.145,2.829c-5.331,7.997-12.661,11.451-18.958,12.859   c-0.055-11.879-5.808-24.276-16.341-34.809c-10.057-10.057-24.663-12.077-34.728-4.828c-7.527,5.433-13.457,17.483-5.406,33.599   c5.012,10.03,14.273,18.061,25.548,22.767c-2.135,1.51-4.604,2.965-7.385,4.352c-6.113,3.06-12.369,4.889-18.428,5.95   c-14.682-29.988-41.215-55.637-75.297-73.746c-12.45,29.192-41.433,49.715-75.119,49.715c-43.255,0-78.656-33.851-81.342-76.446   c-4.229,0.408-8.391,0.864-12.464,1.394c-25.548-16.544-72.957-36.91-120.394-33.749c2.189,19.72,14.287,45.05,29.879,63.329   c-30.212,18.666-49.688,44.146-59.493,73.644c-11.499,5.045-23.916,8.248-37.794,9.187c-10.146,0.694-17.81,9.398-17.088,19.543   c1.876,26.152,9.622,70.699,40.296,82.498c5.746,2.209,14.913,3.516,25.827,4.209c13.001,21.244,32.083,39.938,55.638,54.754   c-3.944,19.699-8.82,39.568-14.824,59.643c-2.598,8.67,3.971,17.395,13.036,17.395h57.134c5.65,0,10.805-3.461,12.77-8.758   c4.495-12.145,8.296-24.576,11.526-37.238c16.952,3.381,34.741,5.195,53.094,5.195c21.346,0,41.929-2.441,61.309-6.949   c-2.522,10.078-5.223,20.184-8.262,30.35c-2.604,8.676,3.964,17.4,13.028,17.4h57.134c5.651,0,10.806-3.461,12.771-8.758   c10.18-27.492,16.919-56.387,21.046-86.334c31.362-27.404,50.375-63.07,50.375-102.107c0-11.982-1.85-23.638-5.229-34.844   c6.568-1.462,13.314-3.686,19.992-7.031c11.05-5.521,18.006-11.886,22.345-18.047c17.605-0.36,33.347-8.67,42.778-22.814   C544.958,199.645,543.687,193.314,539.002,190.186z M132.144,239.472c-9.391,0-17-7.609-17-17c0-9.391,7.609-17,17-17   c9.391,0,17,7.609,17,17C149.144,231.863,141.534,239.472,132.144,239.472z M467.67,190.709c-2.074-4.141-2.033-7.126-0.918-7.929   c0.441-0.32,1.115-0.51,1.938-0.51c1.707,0,4.08,0.85,6.439,3.216c6.182,6.188,9.854,13.137,10.315,19.271   C477.448,202.1,470.825,197.013,467.67,190.709z M298.744,59.272c-37.557,0-68,30.443-68,68c0,37.556,30.443,68,68,68   c37.557,0,68-30.444,68-68C366.744,89.716,336.301,59.272,298.744,59.272z M320.545,113.387c-3.543,1.197-7.419-0.714-8.609-4.291   c-1.122-3.353-5.249-7.263-13.191-7.263c-6.365,0-10.118,4.196-10.554,8.351c-0.537,5.175,3.931,9.262,11.947,10.941   c18.306,3.829,23.657,16.211,22.686,25.643c-0.979,9.493-8.004,17-17.279,19.543v5.665c0,3.76-3.039,6.8-6.8,6.8s-6.8-3.04-6.8-6.8   v-5.393c-10.873-2.203-17.156-9.425-19.292-15.817c-1.197-3.563,0.728-7.418,4.292-8.608c3.569-1.184,7.419,0.728,8.608,4.291   c1.122,3.353,5.243,7.263,13.192,7.263c6.364,0,10.118-4.196,10.554-8.351c0.537-5.168-3.931-9.255-11.948-10.935   c-18.306-3.828-23.657-16.218-22.685-25.649c0.979-9.493,8.004-17,17.279-19.543v-5.657c0-3.761,3.039-6.8,6.8-6.8   s6.8,3.04,6.8,6.8v5.386c10.873,2.203,17.149,9.418,19.292,15.816C326.032,108.341,324.102,112.19,320.545,113.387z" />
-                                </g>
-                            </svg>
+                            <br>
+                            <div class="col-12 rainbow">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" id="Capa_1" x="-10px" y="0px" width="100%" height="400px"
+                                    viewBox="0 0 800 800" style="enable-background:new 0 0 800 800;"
+                                    xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M539.002,190.186c-4.686-3.128-11.017-1.856-14.145,2.829c-5.331,7.997-12.661,11.451-18.958,12.859   c-0.055-11.879-5.808-24.276-16.341-34.809c-10.057-10.057-24.663-12.077-34.728-4.828c-7.527,5.433-13.457,17.483-5.406,33.599   c5.012,10.03,14.273,18.061,25.548,22.767c-2.135,1.51-4.604,2.965-7.385,4.352c-6.113,3.06-12.369,4.889-18.428,5.95   c-14.682-29.988-41.215-55.637-75.297-73.746c-12.45,29.192-41.433,49.715-75.119,49.715c-43.255,0-78.656-33.851-81.342-76.446   c-4.229,0.408-8.391,0.864-12.464,1.394c-25.548-16.544-72.957-36.91-120.394-33.749c2.189,19.72,14.287,45.05,29.879,63.329   c-30.212,18.666-49.688,44.146-59.493,73.644c-11.499,5.045-23.916,8.248-37.794,9.187c-10.146,0.694-17.81,9.398-17.088,19.543   c1.876,26.152,9.622,70.699,40.296,82.498c5.746,2.209,14.913,3.516,25.827,4.209c13.001,21.244,32.083,39.938,55.638,54.754   c-3.944,19.699-8.82,39.568-14.824,59.643c-2.598,8.67,3.971,17.395,13.036,17.395h57.134c5.65,0,10.805-3.461,12.77-8.758   c4.495-12.145,8.296-24.576,11.526-37.238c16.952,3.381,34.741,5.195,53.094,5.195c21.346,0,41.929-2.441,61.309-6.949   c-2.522,10.078-5.223,20.184-8.262,30.35c-2.604,8.676,3.964,17.4,13.028,17.4h57.134c5.651,0,10.806-3.461,12.771-8.758   c10.18-27.492,16.919-56.387,21.046-86.334c31.362-27.404,50.375-63.07,50.375-102.107c0-11.982-1.85-23.638-5.229-34.844   c6.568-1.462,13.314-3.686,19.992-7.031c11.05-5.521,18.006-11.886,22.345-18.047c17.605-0.36,33.347-8.67,42.778-22.814   C544.958,199.645,543.687,193.314,539.002,190.186z M132.144,239.472c-9.391,0-17-7.609-17-17c0-9.391,7.609-17,17-17   c9.391,0,17,7.609,17,17C149.144,231.863,141.534,239.472,132.144,239.472z M467.67,190.709c-2.074-4.141-2.033-7.126-0.918-7.929   c0.441-0.32,1.115-0.51,1.938-0.51c1.707,0,4.08,0.85,6.439,3.216c6.182,6.188,9.854,13.137,10.315,19.271   C477.448,202.1,470.825,197.013,467.67,190.709z M298.744,59.272c-37.557,0-68,30.443-68,68c0,37.556,30.443,68,68,68   c37.557,0,68-30.444,68-68C366.744,89.716,336.301,59.272,298.744,59.272z M320.545,113.387c-3.543,1.197-7.419-0.714-8.609-4.291   c-1.122-3.353-5.249-7.263-13.191-7.263c-6.365,0-10.118,4.196-10.554,8.351c-0.537,5.175,3.931,9.262,11.947,10.941   c18.306,3.829,23.657,16.211,22.686,25.643c-0.979,9.493-8.004,17-17.279,19.543v5.665c0,3.76-3.039,6.8-6.8,6.8s-6.8-3.04-6.8-6.8   v-5.393c-10.873-2.203-17.156-9.425-19.292-15.817c-1.197-3.563,0.728-7.418,4.292-8.608c3.569-1.184,7.419,0.728,8.608,4.291   c1.122,3.353,5.243,7.263,13.192,7.263c6.364,0,10.118-4.196,10.554-8.351c0.537-5.168-3.931-9.255-11.948-10.935   c-18.306-3.828-23.657-16.218-22.685-25.649c0.979-9.493,8.004-17,17.279-19.543v-5.657c0-3.761,3.039-6.8,6.8-6.8   s6.8,3.04,6.8,6.8v5.386c10.873,2.203,17.149,9.418,19.292,15.816C326.032,108.341,324.102,112.19,320.545,113.387z" />
+                                    </g>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
         </div>
     </div>
-</div>
