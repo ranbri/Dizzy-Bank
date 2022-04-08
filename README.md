@@ -1,4 +1,4 @@
-<h1>Dizzy's Database has been <bold style="color:#f03c15">breached!</bold>
+<h1>Dizzy's Database has been <bold>breached!</bold>
   <h3>Due to a breach in our MongoDB Cluster this project may work slightly different than expected. <br>
 from all of us at Dizzy we apolegies for any inconvenience you may experience. </h3>
 
