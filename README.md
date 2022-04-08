@@ -1,3 +1,8 @@
+<h1>Dizzy's Database has been breached! </h1>
+  <h3>Due to a breach in our MongoDB Cluster this project may work slightly different than expected. <br>
+from all of us at Dizzy we apolegies for any inconvenience you may experience. </h3>
+
+
 <div id="top"></div>
 
 <!-- PROJECT LOGO -->
